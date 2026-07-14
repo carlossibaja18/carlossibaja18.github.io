@@ -36,12 +36,12 @@ export const ProjectModal = ({ project, onClose }) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.96, opacity: 0, y: 20 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-slate-900 sm:border sm:border-cyan-400/25 sm:rounded-2xl w-full sm:w-[92vw] max-w-4xl h-full sm:h-auto sm:max-h-[88vh] overflow-y-auto shadow-[0_0_60px_-10px_rgba(0,229,255,0.15)]"
+            className="relative bg-slate-900 sm:border sm:border-teal-400/25 sm:rounded-2xl w-full sm:w-[92vw] max-w-4xl h-full sm:h-auto sm:max-h-[88vh] overflow-y-auto shadow-[0_0_60px_-10px_rgba(0,229,255,0.15)]"
           >
             <button
               onClick={onClose}
               data-testid="modal-close-btn"
-              className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-cyan-400/30 text-slate-200 hover:text-cyan-400 hover:border-cyan-400/60 transition-colors duration-200"
+              className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-teal-400/30 text-slate-200 hover:text-teal-400 hover:border-teal-400/60 transition-colors duration-200"
               aria-label="Close"
             >
               <X size={18} />
@@ -56,7 +56,7 @@ export const ProjectModal = ({ project, onClose }) => {
                   {project.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] font-mono tracking-wider uppercase text-cyan-300 border border-cyan-400/25 rounded px-2 py-1 bg-slate-950/40"
+                      className="text-[11px] font-mono tracking-wider uppercase text-teal-300 border border-teal-400/25 rounded px-2 py-1 bg-slate-950/40"
                     >
                       {t}
                     </span>
@@ -79,7 +79,7 @@ export const ProjectModal = ({ project, onClose }) => {
                 <ol className="mt-5 space-y-3">
                   {project.steps.map((s, i) => (
                     <li key={i} className="flex gap-4 group">
-                      <span className="shrink-0 mt-0.5 h-7 w-7 grid place-items-center rounded-full border border-cyan-400/30 text-cyan-400 text-xs font-mono">
+                      <span className="shrink-0 mt-0.5 h-7 w-7 grid place-items-center rounded-full border border-teal-400/30 text-teal-400 text-xs font-mono">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="text-slate-300 text-sm leading-relaxed pt-1">{s}</span>
@@ -103,7 +103,7 @@ export const ProjectModal = ({ project, onClose }) => {
               )}
 
               {/* Outcome */}
-              <div className="rounded-xl border border-cyan-400/20 bg-cyan-400/5 p-6 sm:p-8">
+              <div className="rounded-lg border border-slate-800 bg-slate-800/25 p-6 sm:p-8">
                 <SectionHeader icon={Trophy} label="Result / Lesson Learned" />
                 <p className="mt-4 text-slate-200 text-sm sm:text-base leading-relaxed">{project.outcome}</p>
               </div>
@@ -117,8 +117,8 @@ export const ProjectModal = ({ project, onClose }) => {
 
 const SectionHeader = ({ icon: Icon, label }) => (
   <div className="flex items-center gap-3">
-    {Icon && <Icon size={16} className="text-cyan-400" />}
-    <span className="text-xs tracking-[0.22em] uppercase text-cyan-400">{label}</span>
+    {Icon && <Icon size={16} className="text-teal-400" />}
+    <span className="font-mono text-xs tracking-[0.22em] uppercase text-teal-400">{label}</span>
   </div>
 );
 

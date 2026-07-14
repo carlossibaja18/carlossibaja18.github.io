@@ -12,12 +12,12 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="relative py-24 sm:py-32">
-      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-cyan-500/8 blur-[130px] pointer-events-none" />
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-teal-500/8 blur-[130px] pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-6 sm:px-12">
         <div className="mb-14">
           <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-10 bg-cyan-400" />
-            <span className="text-xs tracking-[0.28em] uppercase text-cyan-400">Let's Connect</span>
+            <span className="h-px w-10 bg-teal-400" />
+            <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">Let's Connect</span>
           </div>
           <h2 className="font-display tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-50 font-light">
             Resume &amp; Contact
@@ -31,9 +31,9 @@ export const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 rounded-2xl border border-cyan-400/20 bg-slate-900 p-8 sm:p-10 flex flex-col"
+            className="lg:col-span-3 rounded-2xl border border-teal-400/20 bg-slate-900 p-8 sm:p-10 flex flex-col"
           >
-            <div className="flex items-center gap-3 text-cyan-400 mb-6">
+            <div className="flex items-center gap-3 text-teal-400 mb-6">
               <FileText size={18} />
               <span className="text-xs tracking-[0.22em] uppercase">Resume</span>
             </div>
@@ -49,7 +49,7 @@ export const Contact = () => {
             <button
               onClick={handleResume}
               data-testid="resume-download-btn"
-              className="inline-flex items-center justify-center gap-2 bg-cyan-400 text-slate-950 font-semibold text-sm px-8 py-4 rounded-full hover:bg-cyan-300 transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-teal-400 text-slate-950 font-semibold text-sm px-8 py-3.5 rounded-md hover:bg-teal-300 transition-colors duration-200"
             >
               <Download size={16} />
               Download Resume
@@ -67,13 +67,13 @@ export const Contact = () => {
             <a
               href={`mailto:${PROFILE.email}`}
               data-testid="contact-email"
-              className="group rounded-2xl border border-slate-800 bg-slate-900 p-6 hover:border-cyan-400/50 transition-colors duration-200"
+              className="group rounded-2xl border border-slate-800 bg-slate-900 p-6 hover:border-teal-400/50 transition-colors duration-200"
             >
-              <div className="flex items-center gap-3 text-cyan-400 mb-3">
+              <div className="flex items-center gap-3 text-teal-400 mb-3">
                 <Mail size={16} />
                 <span className="text-xs tracking-[0.2em] uppercase">Email</span>
               </div>
-              <p className="text-slate-200 text-sm break-all group-hover:text-cyan-400 transition-colors duration-200">
+              <p className="text-slate-200 text-sm break-all group-hover:text-teal-400 transition-colors duration-200">
                 {PROFILE.email}
               </p>
             </a>
@@ -83,19 +83,19 @@ export const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="contact-linkedin"
-              className="group rounded-2xl border border-slate-800 bg-slate-900 p-6 hover:border-cyan-400/50 transition-colors duration-200"
+              className="group rounded-2xl border border-slate-800 bg-slate-900 p-6 hover:border-teal-400/50 transition-colors duration-200"
             >
-              <div className="flex items-center gap-3 text-cyan-400 mb-3">
+              <div className="flex items-center gap-3 text-teal-400 mb-3">
                 <Linkedin size={16} />
                 <span className="text-xs tracking-[0.2em] uppercase">LinkedIn</span>
               </div>
-              <p className="text-slate-200 text-sm group-hover:text-cyan-400 transition-colors duration-200">
+              <p className="text-slate-200 text-sm group-hover:text-teal-400 transition-colors duration-200">
                 Connect with me
               </p>
             </a>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-              <div className="flex items-center gap-3 text-cyan-400 mb-3">
+              <div className="flex items-center gap-3 text-teal-400 mb-3">
                 <MapPin size={16} />
                 <span className="text-xs tracking-[0.2em] uppercase">Location</span>
               </div>
@@ -107,7 +107,7 @@ export const Contact = () => {
 
         <div className="mt-20 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-display text-slate-400 text-sm">
-            {PROFILE.name}<span className="text-cyan-400">.</span>
+            {PROFILE.name}<span className="text-teal-400">.</span>
           </p>
           <p className="font-mono text-xs text-slate-600">
             © {new Date().getFullYear()} · Built with precision.

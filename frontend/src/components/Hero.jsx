@@ -21,19 +21,16 @@ export const Hero = () => {
           alt="Mechanical systems"
           className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60" />
-        <div className="absolute inset-0 grid-lines opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/70" />
+        <div className="absolute inset-0 grid-lines opacity-30" />
       </div>
-
-      {/* Cyan glow orb */}
-      <div className="absolute -top-40 -right-40 w-[520px] h-[520px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-12 w-full pt-24">
         <motion.div variants={container} initial="hidden" animate="show" className="max-w-3xl">
           <motion.div variants={item} className="flex items-center gap-3 mb-6">
-            <span className="h-px w-10 bg-cyan-400" />
-            <span className="text-xs tracking-[0.28em] uppercase text-cyan-400">
+            <span className="h-px w-10 bg-teal-400" />
+            <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">
               Mechanical &amp; Manufacturing Engineer
             </span>
           </motion.div>
@@ -47,7 +44,7 @@ export const Hero = () => {
 
           <motion.p
             variants={item}
-            className="mt-5 font-mono text-cyan-400 text-sm sm:text-base tracking-[0.12em]"
+            className="mt-5 font-mono text-teal-400 text-sm sm:text-base tracking-[0.12em]"
           >
             {PROFILE.title}
           </motion.p>
@@ -59,19 +56,17 @@ export const Hero = () => {
             {PROFILE.statement}
           </motion.p>
 
-          <motion.div variants={item} className="mt-8 flex flex-wrap gap-2">
-            {PROFILE.focus.map((f) => (
-              <span
-                key={f}
-                className="text-xs font-mono tracking-wider text-slate-300 border border-cyan-400/20 rounded-full px-3 py-1.5 bg-slate-900/40"
-              >
+          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
+            {PROFILE.focus.map((f, i) => (
+              <span key={f} className="flex items-center gap-3">
+                {i > 0 && <span className="h-1 w-1 rounded-full bg-slate-600" />}
                 {f}
               </span>
             ))}
           </motion.div>
 
-          <motion.div variants={item} className="mt-8 flex items-center gap-2 text-slate-400 text-xs font-mono">
-            <MapPin size={14} className="text-cyan-400" />
+          <motion.div variants={item} className="mt-6 flex items-center gap-2 text-slate-500 text-xs font-mono">
+            <MapPin size={14} className="text-teal-400" />
             {PROFILE.location}
           </motion.div>
 
@@ -79,7 +74,7 @@ export const Hero = () => {
             <button
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="hero-view-work-btn"
-              className="group inline-flex items-center gap-2 bg-cyan-400 text-slate-950 font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-cyan-300 transition-colors duration-200"
+              className="group inline-flex items-center gap-2 bg-teal-400 text-slate-950 font-semibold text-sm px-7 py-3 rounded-md hover:bg-teal-300 transition-colors duration-200"
             >
               View Projects
               <ArrowDown size={16} className="group-hover:translate-y-0.5 transition-transform duration-200" />
@@ -87,15 +82,13 @@ export const Hero = () => {
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               data-testid="hero-contact-btn"
-              className="inline-flex items-center gap-2 border border-slate-600 text-slate-200 text-sm px-7 py-3.5 rounded-full hover:border-cyan-400/60 hover:text-cyan-400 transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-slate-700 text-slate-200 text-sm px-7 py-3 rounded-md hover:border-slate-500 hover:text-white transition-colors duration-200"
             >
               Get in Touch
             </button>
           </motion.div>
         </motion.div>
       </div>
-
-      <div className="pointer-events-none absolute inset-0 noise-overlay" />
     </section>
   );
 };
