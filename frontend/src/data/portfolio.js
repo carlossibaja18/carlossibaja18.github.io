@@ -1,20 +1,11 @@
 // Generated premium engineering renders (cohesive visual identity)
 const GEN = "https://static.prod-images.emergentagent.com/jobs/f36f7da0-5f6a-4584-8b27-9866c5525cee/images";
 export const HERO_CENTERPIECE = `${GEN}/84a32f373a4b16f38c11faf4b0683fbb372f4b09ac5675856c7387428bfd513b.png`;
-const COBOT_HERO = `${GEN}/2e299c417a24402287862803e5448e893933d6cd8fe9be6b8ca172492a2f5b53.png`;
-const GRIPPER = `${GEN}/c087d9096c765684049294c481ecf06b23eeabcf08b5ba7093fdd7ac520dda55.png`;
-const VACUUM = `${GEN}/98b7e1a4e03c4de93ca5bcd416b27354eb698e12c4eb555cc858d977c2800bba.png`;
 
 const IMG = (slug, ix) =>
   `https://images.unsplash.com/photo-${slug}?crop=entropy&cs=srgb&fm=jpg&ixid=${ix}&ixlib=rb-4.1.0&q=85`;
 
-const TABLE_FIXTURE = IMG("1691860664019-ad67f27fc99e", "M3w4NTYxOTJ8MHwxfHNlYXJjaHwzfHx3b3Jrc2hvcCUyMGppZyUyMGZpeHR1cmUlMjB3b3JrYmVuY2glMjBmYWJyaWNhdGlvbnxlbnwwfHx8fDE3ODQwMDU1MzZ8MA");
-const WOOD_CLAMPS = IMG("1573871775479-e16ce503cdd7", "M3w4NTYxOTJ8MHwxfHNlYXJjaHwxfHx3b3Jrc2hvcCUyMGppZyUyMGZpeHR1cmUlMjB3b3JrYmVuY2glMjBmYWJyaWNhdGlvbnxlbnwwfHx8fDE3ODQwMDU1MzZ8MA");
-const WORKBENCH = IMG("1707485036935-acd1a7572fa6", "M3w4NTYxOTJ8MHwxfHNlYXJjaHwyfHx3b3Jrc2hvcCUyMGppZyUyMGZpeHR1cmUlMjB3b3JrYmVuY2glMjBmYWJyaWNhdGlvbnxlbnwwfHx8fDE3ODQwMDU1MzZ8MA");
-const CAD_SCREEN = IMG("1769149068959-b11392164add", "M3w4NjAzNTl8MHwxfHNlYXJjaHwzfHxDQUQlMjBhc3NlbWJseSUyMG1lY2hhbmljYWwlMjBkZXNpZ24lMjBzY3JlZW58ZW58MHx8fHwxNzg0MDA1NTM2fDA");
-const CAD_SCREEN2 = IMG("1600869009498-8d429f88d4f5", "M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxDQUQlMjBhc3NlbWJseSUyMG1lY2hhbmljYWwlMjBkZXNpZ24lMjBzY3JlZW58ZW58MHx8fHwxNzg0MDA1NTM2fDA");
 const TESTING_LAB = IMG("1743482710456-0570baa1b240", "M3w4NjAzOTB8MHwxfHNlYXJjaHwzfHxyb2JvdGljcyUyMGVuZ2luZWVyJTIwdGVzdGluZyUyMGxhYiUyMGRhcmt8ZW58MHx8fHwxNzgzOTk5MDQwfDA");
-const ROBOT_FACTORY = IMG("1716191299980-a6e8827ba10b", "M3w4NjAzMjh8MHwxfHNlYXJjaHwyfHxpbmR1c3RyaWFsJTIwcm9ib3QlMjBhcm0lMjBhdXRvbWF0aW9ufGVufDB8fHx8MTc4Mzk5OTA0MHww");
 const GRIPPER_STOCK = IMG("1563968743333-044cef800494", "M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxyb2JvdGljJTIwZ3JpcHBlciUyMG1lY2hhbmljYWwlMjBmaXh0dXJlfGVufDB8fHx8MTc4Mzk5OTA0MHww");
 const WHITE_ARM = IMG("1655393001768-d946c97d6fd1", "M3w4NjAzMjh8MHwxfHNlYXJjaHwzfHxpbmR1c3RyaWFsJTIwcm9ib3QlMjBhcm0lMjBhdXRvbWF0aW9ufGVufDB8fHx8MTc4Mzk5OTA0MHww");
 const PRINTER = IMG("1642969164999-979483e21601", "M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxDQUQlMjAzRCUyMHByaW50aW5nJTIwcHJvdG90eXBlJTIwZW5naW5lZXJpbmd8ZW58MHx8fHwxNzgzOTk5MDQwfDA");
@@ -51,13 +42,13 @@ export const PROJECTS = [
       "Designed and implemented a cobot-assisted ultrasonic welding process for spa components — end-effector, part presentation, fixture layout, vacuum system, and robot sequence.",
     tags: ["Automation", "Fixture Design", "Cobot Programming", "Vacuum System", "Prototyping"],
     year: "Flagship Project",
-    cover: COBOT_HERO,
-    hero: COBOT_HERO,
+    cover: "/projects/cobot-welding.jpg",
+    hero: "/projects/cobot-welding.jpg",
     blocks: [
       {
         label: "Overview",
         body:
-          "An ultrasonic welding process for spa lid components was fully manual — an operator placed parts by hand, positioned the welder, and repeated the cycle all day. I designed and built a cobot-assisted setup around it: the welder holder, a repeatable part-presentation table, a Venturi vacuum system, and the robot sequence. The goal wasn't raw speed — it was consistency and reduced manual input.",
+          "An ultrasonic welding process for spa components was fully manual — an operator placed parts by hand, positioned the welder, and repeated the cycle all day. I designed and built a cobot-assisted setup around it: the welder holder, a repeatable part-presentation table, a Venturi vacuum system, and the robot sequence. The goal wasn't raw speed — it was consistency and reduced manual input.",
       },
       {
         label: "The Challenge",
@@ -82,41 +73,40 @@ export const PROJECTS = [
         type: "gallery",
         title: "Fixture & Table Development",
         caption:
-          "The part-presentation table went from a rough wood mockup to a refined fiberglass build. The locating features fix each lid in the same position so the robot approaches identical geometry every cycle.",
-        layout: "duo",
+          "The part-presentation table started as a wood build with a hand-drawn locating outline that fixes each lid in the same position, so the robot approaches identical geometry every cycle. This early version was later refined in fiberglass.",
+        layout: "single",
         images: [
-          { url: TABLE_FIXTURE, caption: "Fixture layout — repeatable locating features for the lids." },
-          { url: WOOD_CLAMPS, caption: "Early wood prototype — clamped mockup used to prove the concept fast." },
+          { url: "/projects/cobot-fixture.jpg", caption: "Wood part-presentation table — marker outline and locating features keep the lid registered." },
         ],
       },
       {
         type: "gallery",
         title: "Welder Holder / Gripper Design",
         caption:
-          "Custom holder that lets the cobot carry the ultrasonic welder with a rigid, repeatable orientation — designed in CAD and iterated against the real weld motion.",
-        layout: "duo",
+          "The holder I designed lets the cobot carry the ultrasonic welder with a rigid, repeatable orientation. Machined brackets, support rods, and routed pneumatic lines keep the horn steady through the weld motion.",
+        layout: "single",
         images: [
-          { url: GRIPPER, caption: "Welder holder / gripper — machined bracket carrying the welding horn." },
-          { url: CAD_SCREEN, caption: "CAD development of the end-effector and mounting interface." },
+          { url: "/projects/cobot-holder.jpg", caption: "Custom welder holder — machined bracket, support rods, air lines, and part-detect sensor." },
         ],
       },
       {
         type: "gallery",
-        title: "Venturi Vacuum / Suction Integration",
+        title: "Venturi Vacuum / Suction & Part Presentation",
         caption:
-          "A Venturi generator driven by compressed air creates suction with no moving pump. I designed the suction holder and the support rods that locate it — used to hold and present parts consistently during the cycle.",
+          "A Venturi generator driven by compressed air creates suction with no moving pump. I designed the suction holder and support rods so parts are held and presented consistently before each weld.",
         layout: "single",
-        images: [{ url: VACUUM, caption: "Venturi vacuum system — suction holder, generator, and support rods." }],
+        images: [
+          { url: "/projects/cobot-process.jpg", caption: "Loading a part with the vacuum setup — compressed-air suction presents the workpiece the same way every cycle." },
+        ],
       },
       {
         type: "gallery",
-        title: "Rough Full Prototype",
+        title: "CAD & Cobot Programming",
         caption:
-          "The first full integration was intentionally rough — the point was to prove the system worked together before committing to finished materials. These early builds are where the real engineering happened.",
-        layout: "duo",
+          "I modeled the cell and tuned the cobot path and sequence to cut wasted movement and reduce input time — verifying reach and orientation before running on real parts.",
+        layout: "single",
         images: [
-          { url: WORKBENCH, caption: "Bench integration — wiring the sequence and checking reach." },
-          { url: ROBOT_FACTORY, caption: "Full cell mockup — robot, welder, and fixture working as one." },
+          { url: "/projects/cobot-cad.jpg", caption: "Modeling the arm and programming the motion sequence." },
         ],
       },
       {
@@ -126,11 +116,12 @@ export const PROJECTS = [
       },
       {
         type: "gallery",
-        title: "Testing & Refinement",
-        layout: "duo",
+        title: "Final Integrated System",
+        caption:
+          "The integrated cobot weld cell running: alignment strings and clamps hold the spa panel while the robot carries the welder through a repeatable path.",
+        layout: "single",
         images: [
-          { url: TESTING_LAB, caption: "Process testing — validating weld conditions." },
-          { url: CAD_SCREEN2, caption: "Refining the design between test rounds." },
+          { url: "/projects/cobot-welding.jpg", caption: "Best integrated run — cobot, welder holder, vacuum, and fixture working as one system." },
         ],
       },
       {

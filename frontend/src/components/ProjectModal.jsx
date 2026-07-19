@@ -113,7 +113,8 @@ const TextBlock = ({ block }) => (
 );
 
 const GalleryBlock = ({ block, title }) => {
-  const cols = block.layout === "single" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
+  const single = block.layout === "single";
+  const cols = single ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
   return (
     <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
       {block.title && <span className="font-mono text-xs tracking-[0.24em] uppercase text-teal-400">{block.title}</span>}
@@ -121,17 +122,25 @@ const GalleryBlock = ({ block, title }) => {
       <div className={`mt-6 grid ${cols} gap-4`}>
         {block.images.map((im, i) => (
           <figure key={i} className="group">
-            <div
-              className={`relative overflow-hidden rounded-lg border border-slate-800 ${
-                block.layout === "single" ? "aspect-[16/9]" : "aspect-[4/3]"
-              }`}
-            >
-              <img
-                src={im.url}
-                alt={im.caption || `${title} visual`}
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-              />
-            </div>
+            {single ? (
+              <div className="relative overflow-hidden rounded-lg border border-slate-800 bg-slate-950/60 flex items-center justify-center">
+                <img
+                  src={im.url}
+                  alt={im.caption || `${title} visual`}
+                  className="w-auto max-h-[620px] max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div className="relative overflow-hidden rounded-lg border border-slate-800 aspect-[4/3]">
+                <img
+                  src={im.url}
+                  alt={im.caption || `${title} visual`}
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            )}
             {im.caption && (
               <figcaption className="mt-2.5 flex items-start gap-2 text-slate-500 text-xs leading-relaxed">
                 <span className="mt-1 h-px w-4 bg-teal-400/60 shrink-0" />

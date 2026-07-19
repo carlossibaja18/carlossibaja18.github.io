@@ -1,0 +1,38 @@
+{
+  "summary": "Frontend-only verification of the flagship 'Cobot Ultrasonic Welding Automation' case study after switching to 5 REAL locally-served /projects/*.jpg photos. All 6 flagship modal images (hero + 4 single-layout galleries + Final Integrated System) load successfully with naturalWidth>0. All 11 required text sections are present and appear in the exact expected order. Single-layout portrait galleries render with object-contain at ~620px tall (not cropped to a thin strip) and each has both its section title and figcaption. All three close paths (modal-close-btn, modal-scrim@10,10, Escape) work, and body scroll locks/unlocks correctly. Regression sweep passes: flagship project card cover loads /projects/cobot-welding.jpg, the other 3 project cards still load, About timeline (0..5) all render, all 4 Contact links present, and all 8 drone-photo tiles load. No broken images or regressions detected.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "ProjectModal GalleryBlock single-layout uses `w-auto max-h-[620px] max-w-full object-contain` inside a `flex items-center justify-center` container — portrait photos (aspect ratios 900x1600 and 1200x1600) render at ~349-465 x 620 px on desktop with pillar-boxing rather than cropping. Confirmed visually and via computed style.",
+    "The 5 real photos at /projects/*.jpg return HTTP 200 with content-type image/jpeg from the frontend origin. Natural dimensions: cobot-welding 900x1600, cobot-fixture 1200x1600, cobot-holder 900x1600, cobot-process 1200x1600, cobot-cad 900x1600. All portrait.",
+    "Modal hero image uses `object-cover` on a 420px-tall container — with a 900x1600 portrait source this crops the top/bottom significantly. Currently acceptable because the important subject sits in the center of cobot-welding.jpg, but if any of the other 4 photos are ever swapped in as the hero, review this crop.",
+    "Sections appear in the exact order specified by the request: Overview → The Challenge → My Role & Ownership (bulleted, 7 items) → Fixture & Table Development → Welder Holder / Gripper Design → Venturi Vacuum / Suction & Part Presentation → CAD & Cobot Programming → Testing & Learning → Final Integrated System → Final System & Outcome → Lesson Learned (highlighted block).",
+    "PROFILE.linkedin still points at the LinkedIn root ('https://www.linkedin.com/') — pre-existing minor content item, not a regression."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (frontend-only)", "frontend": "100%" },
+  "test_credentials": "None required",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "IMPORTANT tester notes: (1) Section labels like 'Overview'/'The Challenge' render with CSS `text-transform: uppercase` — use element.textContent (not innerText) to preserve original case when asserting section presence. (2) Escape close works but requires `window.focus()` before pressing, plus ~1000ms wait for AnimatePresence exit animation. (3) modal-scrim close works when clicking OUTSIDE the panel — use page.mouse.click(10,10). (4) Modal inner-panel is the real scroll container (overflow-y auto, scrollHeight ~6258 vs clientHeight ~970 on 1920x1080) — scroll it programmatically to trigger loading='lazy' images. (5) All 5 flagship images: /projects/cobot-welding.jpg (used twice — hero + Final Integrated System), cobot-fixture, cobot-holder, cobot-process, cobot-cad. (6) hero-featured-chip opens the same flagship modal as project-card-cobot-ultrasonic.",
+  "detailed_verifications": {
+    "flagship_card_regression": "project-card-cobot-ultrasonic cover img.src ends in /projects/cobot-welding.jpg, naturalWidth=900. Other 3 cards (gripper-fixture / faro-fairino-reliability / cad-3d-printing) still load their Unsplash covers (naturalWidth 5079/4928/6240).",
+    "modal_open_both_entrypoints": "project-card-cobot-ultrasonic click AND hero-featured-chip click both open [data-testid=project-modal] with title 'Cobot Ultrasonic Welding Automation'.",
+    "flagship_modal_images": "6 <img> elements inside the modal after full scroll — hero (cobot-welding), 4 single-gallery portraits (fixture/holder/process/cad), and Final Integrated System (cobot-welding again). All 6 have naturalWidth>0 (900 or 1200) and non-zero naturalHeight (1600).",
+    "single_gallery_portrait_render": "objectFit='contain' on all 4 single-layout gallery images; rendered height=620px, width 349-465px — full portrait visible, no thin-strip crop. Confirmed via getBoundingClientRect + getComputedStyle and by screenshot of the Welder Holder / Gripper Design gallery.",
+    "gallery_titles_and_captions": "Each of the 5 gallery blocks (fixture / holder / process / cad / final integrated) exposes both its section title text and a figcaption with the caption string from portfolio.js.",
+    "text_sections_and_order": "textContent of the modal contains all 11 required labels at monotonically increasing indices: [273, 671, 1057, 1712, 2067, 2394, 2739, 2980, 3268, 3526, 3768].",
+    "bulleted_list": "My Role & Ownership renders 7 <li> items (matches portfolio.js `list` array length).",
+    "close_paths_and_scroll_lock": "modal-close-btn removes modal + body.style.overflow returns to ''. modal-scrim click at (10,10) removes modal. Escape removes modal (needs window focus + ~1s for exit animation). body.style.overflow is 'hidden' when open and '' after every close path.",
+    "about_timeline_regression": "timeline-item-0 through timeline-item-5 all present.",
+    "contact_links_regression": "link-linkedin, link-mail, link-file, link-camera all present.",
+    "drone_gallery_regression": "drone-photo-0 through drone-photo-7 all render with non-zero naturalWidth (3992-8192 px)."
+  }
+}
