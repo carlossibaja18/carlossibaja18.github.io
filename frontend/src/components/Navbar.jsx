@@ -5,8 +5,9 @@ import { Menu, X } from "lucide-react";
 const LINKS = [
   { id: "home", label: "Home" },
   { id: "projects", label: "Projects" },
-  { id: "journey", label: "Journey" },
-  { id: "contact", label: "Resume / Contact" },
+  { id: "about", label: "History" },
+  { id: "contact", label: "Contact" },
+  { id: "drone", label: "Drone" },
 ];
 
 export const Navbar = () => {
@@ -20,7 +21,7 @@ export const Navbar = () => {
       const offsets = LINKS.map((l) => {
         const el = document.getElementById(l.id);
         if (!el) return { id: l.id, top: Infinity };
-        return { id: l.id, top: Math.abs(el.getBoundingClientRect().top - 120) };
+        return { id: l.id, top: Math.abs(el.getBoundingClientRect().top - 140) };
       });
       offsets.sort((a, b) => a.top - b.top);
       setActive(offsets[0].id);
@@ -32,8 +33,7 @@ export const Navbar = () => {
 
   const go = (id) => {
     setOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -42,7 +42,7 @@ export const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
-        scrolled ? "bg-slate-950/70 backdrop-blur-xl border-b border-teal-400/10" : "border-b border-transparent"
+        scrolled ? "bg-slate-950/75 backdrop-blur-xl border-b border-white/5" : "border-b border-transparent"
       }`}
       data-testid="navbar"
     >
@@ -50,9 +50,10 @@ export const Navbar = () => {
         <button
           onClick={() => go("home")}
           data-testid="nav-logo"
-          className="font-display text-lg tracking-tight text-slate-50 hover:text-teal-400 transition-colors duration-200"
+          className="flex items-center gap-2 group"
         >
-          CS<span className="text-teal-400">.</span>
+          <span className="font-display text-lg tracking-tight text-slate-50">Carlos Sibaja</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 group-hover:scale-125 transition-transform duration-200" />
         </button>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -67,10 +68,7 @@ export const Navbar = () => {
             >
               {l.label}
               {active === l.id && (
-                <motion.span
-                  layoutId="nav-underline"
-                  className="absolute left-4 right-4 -bottom-0.5 h-px bg-teal-400"
-                />
+                <motion.span layoutId="nav-underline" className="absolute left-4 right-4 -bottom-0.5 h-px bg-teal-400" />
               )}
             </button>
           ))}
@@ -90,7 +88,7 @@ export const Navbar = () => {
         <motion.nav
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-teal-400/10 overflow-hidden"
+          className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-white/5 overflow-hidden"
         >
           <div className="px-6 py-4 flex flex-col gap-1">
             {LINKS.map((l) => (

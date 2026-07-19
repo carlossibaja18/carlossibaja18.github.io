@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { X, Target, User, ListChecks, Trophy } from "lucide-react";
+import { X } from "lucide-react";
 
 export const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
@@ -25,34 +25,30 @@ export const ProjectModal = ({ project, onClose }) => {
           exit={{ opacity: 0 }}
           data-testid="project-modal"
         >
-          <div
-            className="absolute inset-0 bg-slate-950/80 backdrop-blur-md"
-            onClick={onClose}
-            data-testid="modal-scrim"
-          />
+          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-md" onClick={onClose} data-testid="modal-scrim" />
 
           <motion.div
-            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+            initial={{ scale: 0.96, opacity: 0, y: 24 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.96, opacity: 0, y: 20 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative bg-slate-900 sm:border sm:border-teal-400/25 sm:rounded-2xl w-full sm:w-[92vw] max-w-4xl h-full sm:h-auto sm:max-h-[88vh] overflow-y-auto shadow-[0_0_60px_-10px_rgba(0,229,255,0.15)]"
+            exit={{ scale: 0.97, opacity: 0, y: 24 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="relative bg-slate-900 sm:border sm:border-white/10 sm:rounded-2xl w-full sm:w-[94vw] max-w-5xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]"
           >
             <button
               onClick={onClose}
               data-testid="modal-close-btn"
-              className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-teal-400/30 text-slate-200 hover:text-teal-400 hover:border-teal-400/60 transition-colors duration-200"
+              className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-white/15 text-slate-200 hover:text-teal-400 hover:border-teal-400/50 transition-colors duration-200"
               aria-label="Close"
             >
               <X size={18} />
             </button>
 
-            {/* Hero / result image */}
-            <div className="relative h-64 sm:h-80">
-              <img src={project.result} alt={project.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-10">
-                <div className="flex flex-wrap gap-2 mb-3">
+            {/* Hero */}
+            <div className="relative h-64 sm:h-[420px]">
+              <img src={project.hero} alt={project.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-12">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((t) => (
                     <span
                       key={t}
@@ -62,52 +58,23 @@ export const ProjectModal = ({ project, onClose }) => {
                     </span>
                   ))}
                 </div>
-                <h2 className="font-display text-2xl sm:text-4xl text-slate-50 font-light tracking-tight">
+                <h2 className="font-display text-3xl sm:text-5xl text-slate-50 font-light tracking-tight max-w-3xl leading-[1.03]">
                   {project.title}
                 </h2>
-                <p className="mt-2 text-slate-300 text-sm sm:text-base">{project.summary}</p>
+                <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-2xl">{project.summary}</p>
               </div>
             </div>
 
-            <div className="p-6 sm:p-10 space-y-12">
-              <Block icon={Target} label="The Problem / Goal" text={project.goal} />
-              <Block icon={User} label="What I Did" text={project.role} />
-
-              {/* Steps */}
-              <div>
-                <SectionHeader icon={ListChecks} label="Steps Taken" />
-                <ol className="mt-5 space-y-3">
-                  {project.steps.map((s, i) => (
-                    <li key={i} className="flex gap-4 group">
-                      <span className="shrink-0 mt-0.5 h-7 w-7 grid place-items-center rounded-full border border-teal-400/30 text-teal-400 text-xs font-mono">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="text-slate-300 text-sm leading-relaxed pt-1">{s}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              {/* Process images */}
-              {project.process?.length > 0 && (
-                <div>
-                  <SectionHeader label="Prototype / Process" />
-                  <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {project.process.map((img, i) => (
-                      <div key={i} className="relative rounded-lg overflow-hidden border border-slate-800 aspect-[4/3]">
-                        <img src={img} alt={`${project.title} process ${i + 1}`} className="w-full h-full object-cover" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            {/* Editorial body */}
+            <article className="px-6 sm:px-12 py-12 sm:py-16 max-w-3xl mx-auto space-y-14">
+              {project.blocks.map((b, i) =>
+                b.type === "gallery" ? (
+                  <GalleryBlock key={i} block={b} index={i} title={project.title} />
+                ) : (
+                  <TextBlock key={i} block={b} index={i} />
+                )
               )}
-
-              {/* Outcome */}
-              <div className="rounded-lg border border-slate-800 bg-slate-800/25 p-6 sm:p-8">
-                <SectionHeader icon={Trophy} label="Result / Lesson Learned" />
-                <p className="mt-4 text-slate-200 text-sm sm:text-base leading-relaxed">{project.outcome}</p>
-              </div>
-            </div>
+            </article>
           </motion.div>
         </motion.div>
       )}
@@ -115,16 +82,65 @@ export const ProjectModal = ({ project, onClose }) => {
   );
 };
 
-const SectionHeader = ({ icon: Icon, label }) => (
-  <div className="flex items-center gap-3">
-    {Icon && <Icon size={16} className="text-teal-400" />}
-    <span className="font-mono text-xs tracking-[0.22em] uppercase text-teal-400">{label}</span>
-  </div>
+const reveal = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const TextBlock = ({ block }) => (
+  <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
+    {block.label && (
+      <span className="font-mono text-xs tracking-[0.24em] uppercase text-teal-400">{block.label}</span>
+    )}
+    {block.highlight ? (
+      <div className="mt-4 rounded-xl border-l-2 border-teal-400 bg-slate-800/30 pl-6 pr-6 py-5">
+        <p className="text-slate-100 text-base sm:text-lg leading-relaxed">{block.body}</p>
+      </div>
+    ) : (
+      <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">{block.body}</p>
+    )}
+    {block.list && (
+      <ul className="mt-5 space-y-3">
+        {block.list.map((li, i) => (
+          <li key={i} className="flex gap-3.5">
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+            <span className="text-slate-300 text-sm sm:text-base leading-relaxed">{li}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </motion.div>
 );
 
-const Block = ({ icon, label, text }) => (
-  <div>
-    <SectionHeader icon={icon} label={label} />
-    <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">{text}</p>
-  </div>
-);
+const GalleryBlock = ({ block, title }) => {
+  const cols = block.layout === "single" ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
+  return (
+    <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+      {block.title && <span className="font-mono text-xs tracking-[0.24em] uppercase text-teal-400">{block.title}</span>}
+      {block.caption && <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">{block.caption}</p>}
+      <div className={`mt-6 grid ${cols} gap-4`}>
+        {block.images.map((im, i) => (
+          <figure key={i} className="group">
+            <div
+              className={`relative overflow-hidden rounded-lg border border-slate-800 ${
+                block.layout === "single" ? "aspect-[16/9]" : "aspect-[4/3]"
+              }`}
+            >
+              <img
+                src={im.url}
+                alt={im.caption || `${title} visual`}
+                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+              />
+            </div>
+            {im.caption && (
+              <figcaption className="mt-2.5 flex items-start gap-2 text-slate-500 text-xs leading-relaxed">
+                <span className="mt-1 h-px w-4 bg-teal-400/60 shrink-0" />
+                {im.caption}
+              </figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    </motion.div>
+  );
+};

@@ -1,21 +1,28 @@
+import { useState } from "react";
 import "@/App.css";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Projects } from "@/components/Projects";
-import { Journey } from "@/components/Journey";
+import { ProjectModal } from "@/components/ProjectModal";
+import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
+import { Drone } from "@/components/Drone";
 import { Toaster } from "@/components/ui/sonner";
 
 function App() {
+  const [selected, setSelected] = useState(null);
+
   return (
     <div className="App relative">
       <Navbar />
       <main>
-        <Hero />
-        <Projects />
-        <Journey />
+        <Hero onOpenProject={setSelected} />
+        <Projects onOpen={setSelected} />
+        <About />
         <Contact />
+        <Drone />
       </main>
+      <ProjectModal project={selected} onClose={() => setSelected(null)} />
       <Toaster theme="dark" position="bottom-right" />
     </div>
   );
