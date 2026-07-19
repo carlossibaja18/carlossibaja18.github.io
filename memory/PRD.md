@@ -29,13 +29,21 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Resume placeholder download + email + LinkedIn + location
 
 ## Implemented (2026-06)
-- All sections built and verified by testing agent (frontend 100%, no bugs).
+- v1: All sections built and verified (frontend 100%).
+- Refinement: mature/cleaner restyle (IBM Plex Sans body, muted teal, less flash).
+- v2 REDESIGN (verified 100%, iteration_2):
+  - 5-section nav: Home, Projects, History/About, Contact/Linktree, Drone.
+  - Hero: name + "Engineering" subtitle + positioning/intro + floating engineered-object centerpiece (custom-generated cobot end-effector render) with parallax + float, featured-project chip.
+  - Projects: premium tiles, flagship "Cobot Ultrasonic Welding Automation" spans full width.
+  - Editorial case-study modal: flexible text/gallery blocks with captions, highlighted lesson.
+  - Flagship cobot case study fully rewritten (Venturi vacuum system, welder holder/gripper, wood->fiberglass fixture, ownership list).
+  - Linktree contact + masonry Drone gallery with lightbox.
+  - Custom generated renders (hero centerpiece, cobot cell, gripper, vacuum system) for cohesive identity.
 
 ## Backlog
-- P1: Replace placeholder Unsplash images with Carlos's real robotics/CAD/prototype photos.
-- P1: Add real resume PDF to /public and wire the download button to it.
-- P2: Update LinkedIn URL from root to Carlos's actual profile.
-- P2: Optional SEO/meta tags + Open Graph for link sharing.
+- P1: Replace placeholder photos/renders with Carlos's real robotics/CAD/prototype/drone media.
+- P1: Add real resume PDF and wire link-file to it.
+- P2: Update LinkedIn URL from root to actual profile; add real contact links.
 
 ## Next Tasks
-- Await Carlos's real assets (photos, resume PDF, LinkedIn URL) to swap placeholders.
+- Await Carlos's real assets (project photos, drone photos, resume PDF, LinkedIn URL).
