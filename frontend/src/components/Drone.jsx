@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { DRONE_PHOTOS } from "../data/portfolio";
+import { Eyebrow, MaskText } from "./Motion";
 
 export const Drone = () => {
   const [active, setActive] = useState(null);
@@ -10,14 +11,13 @@ export const Drone = () => {
     <section id="drone" className="relative py-24 sm:py-32 bg-slate-950">
       <div className="relative max-w-7xl mx-auto px-6 sm:px-12">
         <div className="mb-14 max-w-2xl">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-10 bg-teal-400" />
-            <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">Beyond Engineering</span>
-          </div>
-          <h2 className="font-display tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-50 font-light">
-            Drone Photography
-          </h2>
-          <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+          <Eyebrow>Beyond Engineering</Eyebrow>
+          <MaskText
+            as="h2"
+            lines={["Drone Photography"]}
+            className="mt-6 display-hero text-4xl sm:text-6xl text-slate-50"
+          />
+          <p className="mt-6 text-slate-400 text-sm sm:text-base leading-relaxed">
             The same eye for composition and precision, from the air. A small selection of aerial work.
           </p>
         </div>

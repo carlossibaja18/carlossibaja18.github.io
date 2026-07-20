@@ -60,6 +60,70 @@ body {
     background-size: 72px 72px;
 }
 
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: clip;
+}
+
+/* Kinetic display type */
+.display-hero {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+}
+
+/* Masked line reveal wrapper */
+.mask-line {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.06em;
+}
+
+/* Editorial marquee */
+@keyframes marquee-x {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.marquee-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee-x 32s linear infinite;
+    will-change: transform;
+}
+.marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Spotlight for treated product photography */
+.spotlight::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background: radial-gradient(circle at 50% 42%, rgba(45, 212, 191, 0.16), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Clipped angular frame */
+.clip-frame {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%);
+}
+
+/* Outline (stroke) text for oversized numerals */
+.text-stroke {
+    -webkit-text-stroke: 1px rgba(148, 163, 184, 0.35);
+    color: transparent;
+}
+
 @layer base {
     * {
         border-color: rgba(148, 163, 184, 0.12);

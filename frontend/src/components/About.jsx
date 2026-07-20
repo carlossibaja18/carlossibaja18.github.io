@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { PROFILE, TIMELINE } from "../data/portfolio";
+import { Eyebrow, MaskText } from "./Motion";
 
 export const About = () => {
   return (
@@ -7,16 +8,13 @@ export const About = () => {
       <div className="absolute inset-0 grid-lines opacity-15 pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-6 sm:px-12">
         <div className="mb-16 max-w-2xl">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-10 bg-teal-400" />
-            <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">History / About</span>
-          </div>
-          <h2 className="font-display tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-50 font-light">
-            From tinkering to engineered systems
-          </h2>
-          <p className="mt-5 text-slate-400 text-sm sm:text-base leading-relaxed">
-            {PROFILE.intro}
-          </p>
+          <Eyebrow>History / About</Eyebrow>
+          <MaskText
+            as="h2"
+            lines={["From tinkering to", "engineered systems."]}
+            className="mt-6 display-hero text-4xl sm:text-6xl text-slate-50"
+          />
+          <p className="mt-6 text-slate-400 text-sm sm:text-base leading-relaxed">{PROFILE.intro}</p>
         </div>
 
         <div className="relative pl-8 sm:pl-10">

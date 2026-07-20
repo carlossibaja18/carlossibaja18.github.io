@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "../data/portfolio";
+import { Eyebrow, MaskText } from "./Motion";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -15,17 +16,12 @@ export const Projects = ({ onOpen }) => {
   return (
     <section id="projects" className="relative py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="flex items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="h-px w-10 bg-teal-400" />
-              <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">Selected Work</span>
-            </div>
-            <h2 className="font-display tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-50 font-light">
-              Projects
-            </h2>
+            <Eyebrow>Selected Work</Eyebrow>
+            <MaskText as="h2" lines={["Projects"]} className="mt-6 display-hero text-5xl sm:text-7xl text-slate-50" />
           </div>
-          <p className="hidden sm:block text-slate-400 text-sm max-w-xs text-right">
+          <p className="text-slate-400 text-sm max-w-xs sm:text-right">
             Each project opens as a full case study — click to explore the process end&#8209;to&#8209;end.
           </p>
         </div>

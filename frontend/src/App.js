@@ -1,7 +1,10 @@
 import { useState } from "react";
 import "@/App.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { Marquee } from "@/components/Marquee";
+import { Manifesto } from "@/components/Manifesto";
 import { Projects } from "@/components/Projects";
 import { ProjectModal } from "@/components/ProjectModal";
 import { About } from "@/components/About";
@@ -14,9 +17,12 @@ function App() {
 
   return (
     <div className="App relative">
+      <SmoothScroll />
       <Navbar />
       <main>
         <Hero onOpenProject={setSelected} />
+        <Marquee />
+        <Manifesto />
         <Projects onOpen={setSelected} />
         <About />
         <Contact />

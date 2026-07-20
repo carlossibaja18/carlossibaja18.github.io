@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Linkedin, Mail, FileText, Camera, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
 import { PROFILE, LINKS } from "../data/portfolio";
+import { Eyebrow, MaskText } from "./Motion";
+import { scrollToId } from "./SmoothScroll";
 
 const ICONS = { linkedin: Linkedin, mail: Mail, file: FileText, camera: Camera };
 
@@ -12,7 +14,7 @@ export const Contact = () => {
       return false;
     }
     if (link.action === "scroll") {
-      document.getElementById("drone")?.scrollIntoView({ behavior: "smooth" });
+      scrollToId("drone");
       return false;
     }
     return true;
@@ -22,16 +24,16 @@ export const Contact = () => {
     <section id="contact" className="relative py-24 sm:py-32">
       <div className="relative max-w-4xl mx-auto px-6 sm:px-12">
         <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="h-px w-10 bg-teal-400" />
-            <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">Linktree / Contact</span>
-            <span className="h-px w-10 bg-teal-400" />
+          <div className="flex justify-center">
+            <Eyebrow center>Linktree / Contact</Eyebrow>
           </div>
-          <h2 className="font-display tracking-tight text-3xl sm:text-4xl lg:text-5xl text-slate-50 font-light">
-            Let's build something
-          </h2>
+          <MaskText
+            as="h2"
+            lines={["Let's build something."]}
+            className="mt-6 display-hero text-4xl sm:text-6xl text-slate-50"
+          />
           <p className="mt-4 text-slate-400 text-sm sm:text-base">
-            Open to mechanical design & product development roles. The fastest way to reach me:
+            Open to mechanical design &amp; product development roles. The fastest way to reach me:
           </p>
         </div>
 

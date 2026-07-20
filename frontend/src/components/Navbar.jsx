@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { scrollToId } from "./SmoothScroll";
 
 const LINKS = [
   { id: "home", label: "Home" },
@@ -33,7 +34,7 @@ export const Navbar = () => {
 
   const go = (id) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    scrollToId(id);
   };
 
   return (
