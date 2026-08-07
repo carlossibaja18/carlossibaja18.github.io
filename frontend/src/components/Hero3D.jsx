@@ -4,7 +4,7 @@ import "@google/model-viewer";
 
 // Set this to a .glb URL once Carlos's robot model is converted, e.g. "/models/robot.glb"
 export const MODEL_URL = null;
-const FALLBACK_PHOTO = "/projects/cobot-holder.jpg";
+const FALLBACK_PHOTO = "/projects/cobot/IMG_6125.jpg";
 
 export const Hero3D = () => {
   const wrapRef = useRef(null);

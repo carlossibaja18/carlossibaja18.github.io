@@ -35,107 +35,22 @@ export const LINKS = [
 
 export const PROJECTS = [
   {
-    id: "cobot-ultrasonic",
+    id: "cobot-ultrasonic-welding-automation",
     featured: true,
+    custom: "cobot",
     title: "Cobot Ultrasonic Welding Automation",
     summary:
-      "Designed and implemented a cobot-assisted ultrasonic welding process for spa components — end-effector, part presentation, fixture layout, vacuum system, and robot sequence.",
-    tags: ["Automation", "Fixture Design", "Cobot Programming", "Vacuum System", "Prototyping"],
-    year: "Flagship Project",
-    cover: "/projects/cobot-welding.jpg",
-    hero: "/projects/cobot-welding.jpg",
-    blocks: [
-      {
-        label: "Overview",
-        body:
-          "An ultrasonic welding process for spa components was fully manual — an operator placed parts by hand, positioned the welder, and repeated the cycle all day. I designed and built a cobot-assisted setup around it: the welder holder, a repeatable part-presentation table, a Venturi vacuum system, and the robot sequence. The goal wasn't raw speed — it was consistency and reduced manual input.",
-      },
-      {
-        label: "The Challenge",
-        body:
-          "The process depended entirely on the operator. Part placement drifted from cycle to cycle, the welder setup varied, and repetitive handling introduced fatigue and inconsistency. Any automation had to work safely around a collaborative robot, fit the existing process, present parts the same way every time, and — critically — not add new sources of variation into the weld.",
-      },
-      {
-        label: "My Role & Ownership",
-        body:
-          "I personally owned most of the mechanical and process development end-to-end:",
-        list: [
-          "Designed the holder / gripper for the robot to carry and position the ultrasonic welder.",
-          "Programmed the cobot path to cut wasted movement and reduce input time.",
-          "Tested temperatures and process settings to find what bonded the plates best.",
-          "Designed the table and part-placement layout so lids were always presented the same way.",
-          "Designed and integrated a Venturi vacuum system using compressed air for suction.",
-          "Designed the suction holder and the rods / support pieces for the vacuum setup.",
-          "Built an early table in wood, then refined the final version in fiberglass.",
-        ],
-      },
-      {
-        type: "gallery",
-        title: "Fixture & Table Development",
-        caption:
-          "The part-presentation table started as a wood build with a hand-drawn locating outline that fixes each lid in the same position, so the robot approaches identical geometry every cycle. This early version was later refined in fiberglass.",
-        layout: "single",
-        images: [
-          { url: "/projects/cobot-fixture.jpg", caption: "Wood part-presentation table — marker outline and locating features keep the lid registered." },
-        ],
-      },
-      {
-        type: "gallery",
-        title: "Welder Holder / Gripper Design",
-        caption:
-          "The holder I designed lets the cobot carry the ultrasonic welder with a rigid, repeatable orientation. Machined brackets, support rods, and routed pneumatic lines keep the horn steady through the weld motion.",
-        layout: "single",
-        images: [
-          { url: "/projects/cobot-holder.jpg", caption: "Custom welder holder — machined bracket, support rods, air lines, and part-detect sensor." },
-        ],
-      },
-      {
-        type: "gallery",
-        title: "Venturi Vacuum / Suction & Part Presentation",
-        caption:
-          "A Venturi generator driven by compressed air creates suction with no moving pump. I designed the suction holder and support rods so parts are held and presented consistently before each weld.",
-        layout: "single",
-        images: [
-          { url: "/projects/cobot-process.jpg", caption: "Loading a part with the vacuum setup — compressed-air suction presents the workpiece the same way every cycle." },
-        ],
-      },
-      {
-        type: "gallery",
-        title: "CAD & Cobot Programming",
-        caption:
-          "I modeled the cell and tuned the cobot path and sequence to cut wasted movement and reduce input time — verifying reach and orientation before running on real parts.",
-        layout: "single",
-        images: [
-          { url: "/projects/cobot-cad.jpg", caption: "Modeling the arm and programming the motion sequence." },
-        ],
-      },
-      {
-        label: "Testing & Learning",
-        body:
-          "I ran the setup across temperature and timing settings, checking which conditions held the plates best and produced consistent welds. Iterating on the fixture — not the robot speed — is what moved the needle. Once part presentation was locked, weld consistency followed.",
-      },
-      {
-        type: "gallery",
-        title: "Final Integrated System",
-        caption:
-          "The integrated cobot weld cell running: alignment strings and clamps hold the spa panel while the robot carries the welder through a repeatable path.",
-        layout: "single",
-        images: [
-          { url: "/projects/cobot-welding.jpg", caption: "Best integrated run — cobot, welder holder, vacuum, and fixture working as one system." },
-        ],
-      },
-      {
-        label: "Final System & Outcome",
-        body:
-          "The result was a more repeatable, cobot-assisted weld process that cut manual burden and stabilized setup. The biggest gains came from consistent fixturing and part presentation — not from simply moving the robot faster.",
-      },
-      {
-        label: "Lesson Learned",
-        highlight: true,
-        body:
-          "Repeatability starts with fixture design and part positioning. If the workpiece isn't presented consistently, robot speed and path tuning won't solve the underlying variation. Get the fixture right first — everything downstream depends on it.",
-      },
+      "Developed a cobot-assisted ultrasonic welding concept for spa components to reduce variation from manual handling and improve repeatability — combining fixture design, custom welder mounting, vacuum-assisted handling, cobot programming, and iterative physical testing.",
+    tags: [
+      "Mechanical Design",
+      "Fixture Development",
+      "End-Effector Tooling",
+      "Cobot Programming",
+      "Vacuum Integration",
+      "Prototype Development",
     ],
+    year: "Flagship Project",
+    cover: "/projects/cobot/IMG_6125.jpg",
   },
   {
     id: "gripper-fixture",
