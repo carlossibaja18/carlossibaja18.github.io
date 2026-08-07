@@ -46,6 +46,6 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
 
 ## Next Tasks
-- **Interactive 3D hero (in progress):** infra is built (model-viewer + three + lenis). Hero3D shows the real welder photo as placeholder; drop a `.glb` at `/app/frontend/public/models/robot.glb` and set `MODEL_URL` in `components/Hero3D.jsx` to go live. Awaiting Carlos's STEP/STL/OBJ (convert to .glb).
-- Award-level polish DONE (iteration_4, 100%): Lenis smooth scroll, kinetic masked-reveal hero, editorial marquee, numbered manifesto (01–04), treated real photography, refined motion throughout.
-- Await remaining real assets: other 3 project photos, real drone shots, resume PDF, LinkedIn URL.
+- **Cobot case study fully rebuilt (iteration_5, 100%):** dedicated LIGHT editorial modal (warm off-white, charcoal, industrial-blue accent) using ONLY the 8 real photos in `/projects/cobot/` with the exact filename→section mapping, per-image captions + alt text, image lightbox, and a two-column Contributions layout. Framed as a late-stage prototype (no invented metrics). Hero centerpiece now uses the real end-effector photo (IMG_6125).
+- **Interactive 3D hero:** infra ready (model-viewer + three); drop a `.glb` at `/app/frontend/public/models/robot.glb` and set `MODEL_URL` in `Hero3D.jsx`. Awaiting Carlos's STEP/STL/OBJ.
+- Await remaining assets: other 3 project photos, real drone shots, resume PDF, actual LinkedIn URL.
