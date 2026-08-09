@@ -15,8 +15,8 @@ html {
 body {
     margin: 0;
     font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #020617;
-    color: #e2e8f0;
+    background-color: #080A0D;
+    color: #F3F7FA;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -31,8 +31,8 @@ body {
 
 /* Selection */
 ::selection {
-    background: rgba(45, 212, 191, 0.22);
-    color: #f8fafc;
+    background: rgba(103, 215, 255, 0.24);
+    color: #F3F7FA;
 }
 
 /* Custom scrollbar */
@@ -108,7 +108,7 @@ html.lenis body {
     content: "";
     position: absolute;
     inset: -20%;
-    background: radial-gradient(circle at 50% 42%, rgba(45, 212, 191, 0.16), transparent 60%);
+    background: radial-gradient(circle at 50% 42%, rgba(103, 215, 255, 0.14), transparent 60%);
     pointer-events: none;
     z-index: 0;
 }

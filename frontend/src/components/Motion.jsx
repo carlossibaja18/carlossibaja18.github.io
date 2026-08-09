@@ -51,9 +51,9 @@ export const Eyebrow = ({ children, center = false }) => (
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       style={{ transformOrigin: "left" }}
-      className="h-px w-10 bg-teal-400"
+      className="h-px w-10 bg-[#67D7FF]"
     />
-    <span className="font-mono text-xs tracking-[0.28em] uppercase text-teal-400">{children}</span>
+    <span className="font-mono text-xs tracking-[0.28em] uppercase text-[#67D7FF]">{children}</span>
     {center && (
       <motion.span
         initial={{ scaleX: 0 }}
@@ -61,7 +61,7 @@ export const Eyebrow = ({ children, center = false }) => (
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         style={{ transformOrigin: "right" }}
-        className="h-px w-10 bg-teal-400"
+        className="h-px w-10 bg-[#67D7FF]"
       />
     )}
   </div>

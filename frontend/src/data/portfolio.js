@@ -37,7 +37,9 @@ export const PROJECTS = [
   {
     id: "cobot-ultrasonic-welding-automation",
     featured: true,
+    emphasis: "featured",
     custom: "cobot",
+    date: "2026",
     title: "Cobot Ultrasonic Welding Automation",
     summary:
       "Developed a cobot-assisted ultrasonic welding concept for spa components to reduce variation from manual handling and improve repeatability — combining fixture design, custom welder mounting, vacuum-assisted handling, cobot programming, and iterative physical testing.",
@@ -54,6 +56,7 @@ export const PROJECTS = [
   },
   {
     id: "gripper-fixture",
+    emphasis: "medium",
     title: "Robot Gripper & Fixture Development",
     summary: "Custom grippers and holding fixtures for reliable, repeatable part handling.",
     tags: ["CAD", "Tooling", "Prototyping"],
@@ -95,6 +98,7 @@ export const PROJECTS = [
   },
   {
     id: "faro-fairino-reliability",
+    emphasis: "medium",
     title: "Faro / Fairino Robot Reliability Improvement",
     summary: "Diagnosed recurring faults and improved robot-cell reliability to reduce downtime.",
     tags: ["Reliability", "Testing", "Root Cause"],
@@ -136,6 +140,7 @@ export const PROJECTS = [
   },
   {
     id: "cad-3d-printing",
+    emphasis: "medium",
     title: "CAD / 3D Printing / Prototype Work",
     summary: "A selection of CAD models, printed prototypes, and functional parts.",
     tags: ["CAD", "3D Printing", "Design"],
@@ -172,36 +177,37 @@ export const PROJECTS = [
   },
 ];
 
+// Chronological education & career journey (editable — use "Year TBD" where unknown)
 export const TIMELINE = [
   {
-    period: "High School",
-    title: "Early Engineering Interest",
-    desc: "Started building and tinkering — a genuine pull toward mechanical systems and figuring out how things work.",
+    period: "Year TBD",
+    title: "Mechanical Engineering Studies",
+    org: "Florida International University",
+    desc: "Pursuing a mechanical engineering degree — building fundamentals in design, mechanics, materials, and manufacturing.",
   },
   {
-    period: "High School",
-    title: "VEX Robotics",
-    desc: "Competed in VEX Robotics: designed, built, and iterated on competition robots. My first real design-build-test loop.",
+    period: "Year TBD",
+    title: "Manufacturing Engineering / Automation",
+    org: "Watkins Wellness",
+    desc: "Hands-on manufacturing and automation work — tooling, fixtures, and process development on the production floor.",
   },
   {
-    period: "College",
-    title: "Mechanical Engineering",
-    desc: "Deepened fundamentals in CAD, mechanics, materials, and manufacturing through coursework and hands-on projects.",
+    period: "Year TBD",
+    title: "Robotics & Cobot Development",
+    org: "Automation Projects",
+    desc: "Developed cobot-assisted systems including end-effectors, fixtures, and vacuum integration for real production processes.",
   },
   {
-    period: "College",
-    title: "Certifications & Skills",
-    desc: "Earned technical certifications and sharpened CAD, prototyping, and manufacturing capabilities.",
+    period: "Year TBD",
+    title: "FANUC Training / Certification",
+    org: "FANUC",
+    desc: "Industrial robotics training and certification milestone supporting automation and cobot integration work.",
   },
   {
-    period: "Professional",
-    title: "Robotics & Automation",
-    desc: "Worked hands-on with cobots and industrial robots — automation cells, tooling, fixtures, vacuum systems, and reliability.",
-  },
-  {
-    period: "Now",
-    title: "Toward Mechanical Design & Product Development",
-    desc: "Focusing my manufacturing and robotics experience toward design and product development — building things that are reliable and manufacturable.",
+    period: "Year TBD",
+    title: "Mechanical Engineering Degree Completion",
+    org: "Florida International University",
+    desc: "Completing the degree and transitioning toward mechanical design and product development roles.",
   },
 ];
 

@@ -65,7 +65,7 @@ export const Hero3D = () => {
 
           <div className="pointer-events-none absolute inset-0 z-[2] ring-1 ring-inset ring-white/5 rounded-2xl" />
           <div className="absolute bottom-4 left-5 z-[3] flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#67D7FF] animate-pulse" />
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-400">
               {MODEL_URL ? "Drag to rotate · Live 3D" : "End-effector · Ultrasonic welder"}
             </span>

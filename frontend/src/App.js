@@ -3,13 +3,12 @@ import "@/App.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Marquee } from "@/components/Marquee";
-import { Manifesto } from "@/components/Manifesto";
 import { Projects } from "@/components/Projects";
 import { ProjectModal } from "@/components/ProjectModal";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { Drone } from "@/components/Drone";
+import { Timeline } from "@/components/Timeline";
+import { AboutMe } from "@/components/AboutMe";
+import { Footer } from "@/components/Footer";
+import { ResumeModule } from "@/components/ResumeModule";
 import { Toaster } from "@/components/ui/sonner";
 
 function App() {
@@ -21,13 +20,12 @@ function App() {
       <Navbar />
       <main>
         <Hero onOpenProject={setSelected} />
-        <Marquee />
-        <Manifesto />
         <Projects onOpen={setSelected} />
-        <About />
-        <Contact />
-        <Drone />
+        <Timeline />
+        <AboutMe />
       </main>
+      <Footer />
+      <ResumeModule />
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
       <Toaster theme="dark" position="bottom-right" />
     </div>

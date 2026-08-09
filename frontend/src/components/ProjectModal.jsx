@@ -46,7 +46,7 @@ export const ProjectModal = ({ project, onClose }) => {
                 <button
                   onClick={onClose}
                   data-testid="modal-close-btn"
-                  className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-white/15 text-slate-200 hover:text-teal-400 hover:border-teal-400/50 transition-colors duration-200"
+                  className="fixed sm:absolute top-4 right-4 z-20 h-10 w-10 grid place-items-center rounded-full bg-slate-950/70 backdrop-blur border border-white/15 text-slate-200 hover:text-[#67D7FF] hover:border-[#67D7FF]/50 transition-colors duration-200"
                   aria-label="Close"
                 >
                   <X size={18} />
@@ -61,7 +61,7 @@ export const ProjectModal = ({ project, onClose }) => {
                       {project.tags.map((t) => (
                         <span
                           key={t}
-                          className="text-[11px] font-mono tracking-wider uppercase text-teal-300 border border-teal-400/25 rounded px-2 py-1 bg-slate-950/40"
+                          className="text-[11px] font-mono tracking-wider uppercase text-[#A4EAFF] border border-[#67D7FF]/25 rounded px-2 py-1 bg-slate-950/40"
                         >
                           {t}
                         </span>
@@ -101,10 +101,10 @@ const reveal = {
 const TextBlock = ({ block }) => (
   <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }}>
     {block.label && (
-      <span className="font-mono text-xs tracking-[0.24em] uppercase text-teal-400">{block.label}</span>
+      <span className="font-mono text-xs tracking-[0.24em] uppercase text-[#67D7FF]">{block.label}</span>
     )}
     {block.highlight ? (
-      <div className="mt-4 rounded-xl border-l-2 border-teal-400 bg-slate-800/30 pl-6 pr-6 py-5">
+      <div className="mt-4 rounded-xl border-l-2 border-[#67D7FF] bg-slate-800/30 pl-6 pr-6 py-5">
         <p className="text-slate-100 text-base sm:text-lg leading-relaxed">{block.body}</p>
       </div>
     ) : (
@@ -114,7 +114,7 @@ const TextBlock = ({ block }) => (
       <ul className="mt-5 space-y-3">
         {block.list.map((li, i) => (
           <li key={i} className="flex gap-3.5">
-            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-teal-400 shrink-0" />
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#67D7FF] shrink-0" />
             <span className="text-slate-300 text-sm sm:text-base leading-relaxed">{li}</span>
           </li>
         ))}
@@ -128,7 +128,7 @@ const GalleryBlock = ({ block, title }) => {
   const cols = single ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2";
   return (
     <motion.div variants={reveal} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-      {block.title && <span className="font-mono text-xs tracking-[0.24em] uppercase text-teal-400">{block.title}</span>}
+      {block.title && <span className="font-mono text-xs tracking-[0.24em] uppercase text-[#67D7FF]">{block.title}</span>}
       {block.caption && <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">{block.caption}</p>}
       <div className={`mt-6 grid ${cols} gap-4`}>
         {block.images.map((im, i) => (
@@ -154,7 +154,7 @@ const GalleryBlock = ({ block, title }) => {
             )}
             {im.caption && (
               <figcaption className="mt-2.5 flex items-start gap-2 text-slate-500 text-xs leading-relaxed">
-                <span className="mt-1 h-px w-4 bg-teal-400/60 shrink-0" />
+                <span className="mt-1 h-px w-4 bg-[#67D7FF]/60 shrink-0" />
                 {im.caption}
               </figcaption>
             )}
