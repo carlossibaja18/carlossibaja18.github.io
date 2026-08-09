@@ -21,7 +21,7 @@ function App() {
       <main>
         <Hero onOpenProject={setSelected} />
         <Projects onOpen={setSelected} />
-        <Timeline />
+        <Timeline onOpen={setSelected} />
         <AboutMe />
       </main>
       <Footer />
