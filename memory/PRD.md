@@ -49,10 +49,17 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Model has no materials → renders natural white (gray/orange not present in source GLB).
 - All other sections unchanged (Projects, Timeline, About Me, Resume QR, Cobot case study).
 
+## 3D Robot Refinement (DELIVERED — iteration_10, 100% acceptance, 2026-07)
+- Material realism: injected a single light-gray PBR material into the GLB (baseColor ~0.82 gray, metallicFactor 0.34, roughness 0.44) — original preserved as `fairino-fr3-wms.orig.glb`. Only a materials entry + primitive.material index were added; geometry/BIN untouched.
+- Custom lighting env `/app/frontend/public/models/studio-env.png` generated via `/app/scripts/gen_env.py` (equirectangular: bright cool-white key, cool fill, a blue rim lobe on the left, a warm-orange rim lobe on the right). Gives subtle orange + blue rim accents on the gray body. (LDR PNG → model-viewer logs a benign HDRJPGLoader SDR notice; a real .hdr would remove it.)
+- Sizing/pivot: `camera-orbit="20deg 76deg 158%"` (zoomed out → fully visible w/ breathing room), `bounds="tight"`, `camera-target="auto"` so auto-rotate + mouse-drag rotate around the model's own center. exposure 1.18, tone-mapping neutral, rotation-per-second 10deg.
+- Verified pixel balance (mv.toDataURL sampling): warm ~17% / cool ~9% / neutral ~74%. Click/drag/chip/modal/regressions all pass.
+
 ## Backlog
 - P1: Replace placeholder photos/renders with Carlos's real robotics/CAD/prototype/drone media.
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
+- P2: (optional) swap studio-env.png for a real .hdr equirect for truer IBL and to silence HDRJPGLoader notice.
 
 ## Next Tasks
 - **Timeline redesigned (iteration_7, 100%):** 8 exact chronological milestones (Mission Vista HS → VEX → FIU BSME 2021–2027 → ECO/VEX → San Diego exploration → Watkins Wellness Jan 2026–Present w/ expandable role details → FANUC HandlingTool May 2026 → Cobot 2026). Alternating rail w/ scroll-fill blue line, reduced-motion aware, mobile left-rail stack. Last milestone's "View Cobot Case Study →" opens the PRESERVED cobot modal. No invented facts/images.

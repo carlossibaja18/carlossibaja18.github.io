@@ -27,11 +27,11 @@ lights = [
     (0.50, 0.22, 0.36, 0.24, (1.00, 1.00, 1.02), 2.05),
     # gentle cool fill from opposite, neutral
     (0.02, 0.42, 0.42, 0.32, (0.58, 0.64, 0.78), 0.50),
-    # BLUE rim — placed toward the visible left-front edge, bright + a touch wide
-    (0.32, 0.44, 0.15, 0.28, (0.18, 0.48, 1.00), 3.10),
-    (0.44, 0.38, 0.11, 0.22, (0.20, 0.52, 1.00), 2.30),
-    # WARM ORANGE accent, right edge — narrow rim, eased slightly for balance
-    (0.86, 0.58, 0.11, 0.22, (1.00, 0.48, 0.12), 2.05),
+    # BLUE rim — placed toward the visible left-front edge, tempered for subtlety
+    (0.32, 0.44, 0.14, 0.26, (0.18, 0.48, 1.00), 2.45),
+    (0.44, 0.38, 0.10, 0.20, (0.20, 0.52, 1.00), 1.75),
+    # WARM ORANGE accent, right edge — narrow rim
+    (0.86, 0.58, 0.12, 0.23, (1.00, 0.48, 0.12), 2.15),
     # subtle cool floor bounce
     (0.50, 0.93, 0.60, 0.14, (0.30, 0.34, 0.44), 0.26),
 ]
