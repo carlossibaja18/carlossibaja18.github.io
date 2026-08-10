@@ -24,15 +24,16 @@ def blob(cx, cy, sx, sy, col, inten):
 
 lights = [
     # soft cool-white KEY light, upper front, broad and bright (keeps body neutral gray)
-    (0.50, 0.22, 0.36, 0.24, (1.00, 1.00, 1.02), 2.30),
+    (0.50, 0.22, 0.36, 0.24, (1.00, 1.00, 1.02), 2.05),
     # gentle cool fill from opposite, neutral
-    (0.02, 0.42, 0.42, 0.32, (0.60, 0.66, 0.78), 0.55),
-    # BLUE rim, left edge, mid — narrow so it reads as an edge accent
-    (0.17, 0.50, 0.12, 0.26, (0.20, 0.50, 1.00), 1.75),
-    # WARM ORANGE accent, right lower edge — narrow, subtle
-    (0.85, 0.60, 0.12, 0.22, (1.00, 0.50, 0.14), 0.80),
+    (0.02, 0.42, 0.42, 0.32, (0.58, 0.64, 0.78), 0.50),
+    # BLUE rim — placed toward the visible left-front edge, bright + a touch wide
+    (0.32, 0.44, 0.15, 0.28, (0.18, 0.48, 1.00), 3.10),
+    (0.44, 0.38, 0.11, 0.22, (0.20, 0.52, 1.00), 2.30),
+    # WARM ORANGE accent, right edge — narrow rim, eased slightly for balance
+    (0.86, 0.58, 0.11, 0.22, (1.00, 0.48, 0.12), 2.05),
     # subtle cool floor bounce
-    (0.50, 0.93, 0.60, 0.14, (0.34, 0.38, 0.46), 0.28),
+    (0.50, 0.93, 0.60, 0.14, (0.30, 0.34, 0.44), 0.26),
 ]
 
 for cx, cy, sx, sy, col, inten in lights:

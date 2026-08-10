@@ -65,7 +65,7 @@ export const Hero = ({ onOpenProject }) => {
             disable-zoom=""
             bounds="tight"
             orientation="0deg -90deg 0deg"
-            camera-target="auto auto auto"
+            camera-target="auto"
             camera-orbit="20deg 76deg 158%"
             min-camera-orbit="auto 45deg auto"
             max-camera-orbit="auto 100deg auto"
@@ -73,7 +73,7 @@ export const Hero = ({ onOpenProject }) => {
             tone-mapping="neutral"
             shadow-intensity="0.9"
             shadow-softness="1"
-            exposure="1.0"
+            exposure="1.18"
             environment-image="/models/studio-env.png"
             style={{ width: "100%", height: "100%", background: "transparent", "--poster-color": "transparent" }}
           />
