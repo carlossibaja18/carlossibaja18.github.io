@@ -63,14 +63,14 @@ export const Hero = ({ onOpenProject }) => {
             {...(reduced ? {} : { "auto-rotate": "", "auto-rotate-delay": "0", "rotation-per-second": "16deg" })}
             interaction-prompt="none"
             disable-zoom=""
-            orientation="0deg 0deg 0deg"
-            camera-orbit="35deg 72deg 105%"
+            orientation="0deg -90deg 0deg"
+            camera-orbit="25deg 74deg 112%"
             min-camera-orbit="auto 55deg auto"
             max-camera-orbit="auto 95deg auto"
-            field-of-view="30deg"
-            shadow-intensity="1.15"
+            field-of-view="32deg"
+            shadow-intensity="1.1"
             shadow-softness="1"
-            exposure="1.15"
+            exposure="1.05"
             environment-image="neutral"
             style={{ width: "100%", height: "100%", background: "transparent", "--poster-color": "transparent" }}
           />
