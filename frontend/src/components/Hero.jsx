@@ -60,18 +60,21 @@ export const Hero = ({ onOpenProject }) => {
             data-testid="hero-centerpiece"
             alt="Interactive 3D model of the FAIRINO FR3-WMS collaborative robot — Cobot Ultrasonic Welding Automation"
             camera-controls=""
-            {...(reduced ? {} : { "auto-rotate": "", "auto-rotate-delay": "0", "rotation-per-second": "16deg" })}
+            {...(reduced ? {} : { "auto-rotate": "", "auto-rotate-delay": "600", "rotation-per-second": "10deg" })}
             interaction-prompt="none"
             disable-zoom=""
+            bounds="tight"
             orientation="0deg -90deg 0deg"
-            camera-orbit="25deg 74deg 112%"
-            min-camera-orbit="auto 55deg auto"
-            max-camera-orbit="auto 95deg auto"
-            field-of-view="32deg"
-            shadow-intensity="1.1"
+            camera-target="auto auto auto"
+            camera-orbit="20deg 76deg 158%"
+            min-camera-orbit="auto 45deg auto"
+            max-camera-orbit="auto 100deg auto"
+            field-of-view="30deg"
+            tone-mapping="neutral"
+            shadow-intensity="0.9"
             shadow-softness="1"
-            exposure="1.05"
-            environment-image="neutral"
+            exposure="1.0"
+            environment-image="/models/studio-env.png"
             style={{ width: "100%", height: "100%", background: "transparent", "--poster-color": "transparent" }}
           />
           {/* featured tag */}

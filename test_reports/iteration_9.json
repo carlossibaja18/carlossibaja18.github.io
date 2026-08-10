@@ -1,0 +1,29 @@
+{
+  "summary": "Frontend-only regression + robot refinement verification (iteration 9). Robot GLB (200) and studio-env.png (200) load cleanly. model-viewer loads (mv.loaded=true, modelIsVisible=true). Robot is fully visible and centered on desktop (1920x1080, rect 560x583 within a 640-viewport hero) and on mobile (390x844, rect ~335x388) with breathing room top/bottom. Robot rotates around its own center axis (camera-target=auto) and is freely draggable via mouse without triggering the modal (verified: drag did NOT open modal). A discrete click on the robot DOES open the 'Cobot Ultrasonic Welding Automation' modal, and the 'Featured Project' chip opens the same modal. Escape closes it. Regressions clean: Navbar (Home/Projects/Timeline/About Me) renders, Projects grid shows 4 cards, Timeline has 10 testid-tagged milestones, Resume module with QR + 'Scan or View PDF' link visible. HOWEVER: material appearance is only partially met — robot reads as light-gray (avg RGB ~169,168,172; min 116, max 214, so it's clearly shaded, not flat pure white), but the promised warm-orange rim accent is essentially absent. Pixel analysis of the rendered canvas: 98.9% neutral, 1.1% cool-blue, 0.0% warm-orange pixels. Console shows model-viewer's HDRJPGLoader warning: 'Failure to reconstruct an HDR image from /models/studio-env.png: Gain map metadata not found in the file, HDRJPGLoader will render the SDR jpeg' — meaning the environment image is being used as an SDR JPEG-decoded LDR probe, so the warm-orange side light barely contributes at the current exposure (1.0) with tone-mapping=neutral and metallicFactor=0.15.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Hero <model-viewer> lighting", "issue": "Robot appears light-gray but the warm-orange rim accent from studio-env.png is not visible (0.0% warm pixels vs 1.1% cool). User explicitly asked for subtle warm-orange + cool-blue rim accents. The env image is being loaded as SDR (HDRJPGLoader warning: gain map metadata missing), so orange side barely contributes. Cool blue is present only faintly.", "selector": "[data-testid='hero-centerpiece']", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Strengthen the warm-orange rim contribution in /models/studio-env.png (or replace with a proper HDR .hdr/.exr env, or bake stronger orange highlight into the equirect). Alternatively raise metallicFactor slightly (0.25-0.35) and/or increase exposure (1.15-1.3) so the env highlights read. Aim for at least ~5-10% warm pixels in the rendered canvas.",
+    "Consider providing a real HDR env (.hdr) instead of studio-env.png so model-viewer's IBL uses HDR intensities (removes the HDRJPGLoader SDR warning and gives real orange/blue rims).",
+    "Optional: reduce console warnings from model-viewer ($updateSource bailing out, Lit dev-mode) — cosmetic only."
+  ],
+  "critical_code_review_comments": [
+    "Hero.jsx camera-target='auto auto auto' — model-viewer expects 'auto' (single token) or explicit meters. 'auto auto auto' currently still yields auto-center behavior in practice, but is non-standard; consider camera-target='auto'.",
+    "environment-image is a .png being interpreted as HDR-JPG; use .hdr for proper IBL or accept SDR lighting.",
+    "Clickable wrapper uses onClick which does fire on mouseup even after small drags; current behavior is acceptable (large drag did not fire modal in test), but for stricter drag-vs-click UX consider comparing pointerdown/up coords with a small threshold."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "88% (7/8 requirements pass; material realism partially met — orange rim missing)"},
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "All interaction, sizing, centering, click-vs-drag, modal open, chip, mobile and nav regressions PASS. Only remaining concern: warm-orange rim accent is not visible on the rendered robot (pixel sampling: 0% warm, 1.1% cool, 98.9% neutral around gray 169). GLB/env both return 200. HDRJPGLoader logs SDR fallback warning. Screenshots captured (desktop, mobile, opened modal).",
+  "rca of the issue": "studio-env.png is a plain PNG; model-viewer's HDRJPGLoader can't extract HDR gain-map metadata, so it decodes it as an SDR LDR probe. Combined with metallicFactor=0.15 (low reflectivity) and exposure=1.0 with tone-mapping=neutral, the warm-orange side of the environment lands at low luminance and doesn't produce a visible rim on the light-gray body. Fix: use a real .hdr equirect (with a bright warm key on one side and cool fill on the other), or boost env orange intensity + metallicFactor/exposure."
+}
