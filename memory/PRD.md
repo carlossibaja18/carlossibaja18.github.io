@@ -40,6 +40,15 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
   - Linktree contact + masonry Drone gallery with lightbox.
   - Custom generated renders (hero centerpiece, cobot cell, gripper, vacuum system) for cohesive identity.
 
+## Interactive 3D Robot Hero (DELIVERED — iteration_8, 100% pass, 2026-07)
+- Homepage central featured card replaced with an interactive 3D FAIRINO FR3-WMS cobot via `@google/model-viewer` (peer dep `three@0.185.1`).
+- Model hosted at `/app/frontend/public/models/fairino-fr3-wms.glb` (self-contained GLB, 200 model/gltf-binary).
+- Fix: GLB was a Z-up CAD export (arm long-axis on Z=0.56m, Y only 0.196m) so it rendered lying down. Corrected at runtime with `orientation="0deg -90deg 0deg"` (rotate -90° about X) → robot now stands upright, base grounded at bottom, centered, fully visible. GLB source NOT modified.
+- model-viewer config: camera-controls, auto-rotate (disabled under prefers-reduced-motion), disable-zoom, camera-orbit="25deg 74deg 112%", fov 32deg, neutral env, soft shadow, exposure 1.05.
+- Clicking the robot (`data-testid=hero-featured-card`) OR the chip (`data-testid=hero-featured-chip`) opens the existing PRESERVED Cobot case-study modal. Drag orbits without firing the click.
+- Model has no materials → renders natural white (gray/orange not present in source GLB).
+- All other sections unchanged (Projects, Timeline, About Me, Resume QR, Cobot case study).
+
 ## Backlog
 - P1: Replace placeholder photos/renders with Carlos's real robotics/CAD/prototype/drone media.
 - P1: Add real resume PDF and wire link-file to it.
