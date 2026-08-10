@@ -46,7 +46,7 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
 
 ## Next Tasks
-- **Shell + visual-system overhaul DONE (iteration_6, 100%):** new near-black + electric-blue system (#080A0D / #67D7FF, no teal/purple/neon), top-center hero identity, central floating Cobot featured card (CSS 3D + tilt, reduced-motion aware), top-right 4-link nav (Home/Projects/Timeline/About Me), asymmetric Projects grid (emphasis config; Cobot first & flagship), chronological Timeline (editable "Year TBD"), About Me (focus areas + credentials trophy-case empty states + contact), fixed bottom-left Resume QR module (Coming Soon; mobile drawer), minimal footer. Cobot light case study PRESERVED exactly.
-- **Resume:** set `RESUME_URL` in `components/ResumeModule.jsx` to the hosted PDF to auto-generate the scannable QR + live links.
-- **Interactive 3D hero:** infra kept (Hero3D.jsx, model-viewer+three) for when Carlos sends a STEP/STL/OBJ (convert to .glb).
-- Await remaining assets: other 3 project photos, resume PDF, real dates for Timeline, FANUC/other certificate images, actual LinkedIn URL.
+- **Timeline redesigned (iteration_7, 100%):** 8 exact chronological milestones (Mission Vista HS → VEX → FIU BSME 2021–2027 → ECO/VEX → San Diego exploration → Watkins Wellness Jan 2026–Present w/ expandable role details → FANUC HandlingTool May 2026 → Cobot 2026). Alternating rail w/ scroll-fill blue line, reduced-motion aware, mobile left-rail stack. Last milestone's "View Cobot Case Study →" opens the PRESERVED cobot modal. No invented facts/images.
+- **Resume:** set `RESUME_URL` in `ResumeModule.jsx` to auto-generate the scannable QR + live links.
+- **Interactive 3D hero:** Hero3D.jsx infra kept for a future .glb (Carlos to send STEP/STL/OBJ).
+- Await remaining assets: other 3 project photos, resume PDF, certificate images (FANUC etc.) for About Me archive, LinkedIn URL.

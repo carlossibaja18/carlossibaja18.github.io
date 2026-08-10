@@ -1,40 +1,47 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { QrCode, ExternalLink, X, FileText } from "lucide-react";
+import { ExternalLink, X, FileText } from "lucide-react";
 
-// Set to the hosted resume PDF URL when available. Leave null to show "Coming Soon".
-export const RESUME_URL = null;
+// Public resume file (hosted in /public). Relative path works for links;
+// the QR encodes the absolute URL so phone cameras can open it.
+export const RESUME_URL = "/resume/carlos-sibaja-resume.jpg";
+
+const absoluteResume = () =>
+  typeof window !== "undefined" ? window.location.origin + RESUME_URL : RESUME_URL;
+
+const qrSrc = () =>
+  `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&qzone=2&ecc=M&bgcolor=ffffff&color=0b1220&data=${encodeURIComponent(
+    absoluteResume()
+  )}`;
 
 const Panel = () => (
   <div className="w-[210px] rounded-xl border border-[#67D7FF]/22 bg-[#11171D]/95 backdrop-blur p-4 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)]">
-    <div className="aspect-square rounded-lg bg-[#080A0D] border border-white/8 grid place-items-center overflow-hidden">
-      {RESUME_URL ? (
-        <img
-          src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&bgcolor=080A0D&color=F3F7FA&data=${encodeURIComponent(RESUME_URL)}`}
-          alt="Scan to open Carlos Sibaja's resume PDF"
-          className="w-full h-full object-contain"
-        />
-      ) : (
-        <div className="flex flex-col items-center gap-2 text-[#9AA8B3] px-3 text-center">
-          <QrCode size={26} className="text-[#67D7FF]/50" />
-          <span className="font-mono text-[9px] tracking-[0.14em] uppercase leading-relaxed">Resume PDF<br />Coming Soon</span>
-        </div>
-      )}
-    </div>
-    <p className="mt-3 font-mono text-[10px] tracking-[0.22em] uppercase text-[#67D7FF]">Resume</p>
-    {RESUME_URL ? (
-      <a
-        href={RESUME_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-testid="resume-view-link"
-        className="mt-1 flex items-center gap-1.5 text-[#F3F7FA] text-xs hover:text-[#67D7FF] transition-colors"
-      >
-        Scan or View PDF <ExternalLink size={12} className="text-[#67D7FF]" />
-      </a>
-    ) : (
-      <p className="mt-1 text-[#9AA8B3] text-xs">Scan or View PDF ↗</p>
-    )}
+    <a
+      href={RESUME_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open Carlos Sibaja resume"
+      className="block rounded-lg bg-white p-2.5"
+    >
+      <img
+        src={qrSrc()}
+        alt="Scan to open Carlos Sibaja's resume"
+        data-testid="resume-qr"
+        className="w-full h-full object-contain"
+        width="260"
+        height="260"
+      />
+    </a>
+    <p className="mt-3 font-mono text-[10px] tracking-[0.22em] uppercase text-[#F3F7FA]">Resume</p>
+    <a
+      href={RESUME_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-testid="resume-view-link"
+      className="mt-1 inline-flex items-center gap-1.5 text-[#67D7FF] hover:text-[#A4EAFF] text-xs transition-colors"
+    >
+      Scan or View PDF <ExternalLink size={12} />
+    </a>
   </div>
 );
 
