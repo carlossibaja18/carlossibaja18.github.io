@@ -62,6 +62,9 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Accuracy guardrails honored: two FANUC industrial robots drilling simultaneously, five shell models, ~40 min → ~6 min, periodic FANUC-engineer guidance + Carlos's day-to-day on-site ownership; no invented metrics/model numbers.
 - Proprietary text protection: IMG_0810 (teach-pendant program text incl. email/names) and IMG_1096 (ROBOGUIDE point-name labels) regions blurred via PIL before hosting; source webp/jpg kept in /app/assets/fanuc-trim-drill/{batch1,batch2,batch3}. Original filenames preserved in FanucCaseStudy.jsx code comments.
 
+## Projects Cleanup (2026-07)
+- Removed two projects completely per user request: "Robot Gripper & Fixture Development" (gripper-fixture) and "Faro / Fairino Robot Reliability Improvement" (faro-fairino-reliability), plus their unused stock-image constants. Projects grid now: Cobot (flagship) → FANUC Trim & Drill → CAD / 3D Printing.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
