@@ -55,6 +55,27 @@ export const PROJECTS = [
     cover: "/projects/cobot/IMG_6125.jpg",
   },
   {
+    id: "fanuc-vision-trim-drill-automation",
+    emphasis: "large",
+    custom: "fanuc",
+    date: "2026",
+    title: "FANUC Vision-Guided Dual-Robot Trim & Drill Automation",
+    summary:
+      "Improved a dual-FANUC vision-guided trim-and-drill process automating hole cutting in spa shells on a conveyor cell — refining lighting and vision conditions, adjusting point-to-point drilling locations, correcting positional offsets, and tuning hole diameters across five shell models.",
+    tags: [
+      "FANUC Robotics",
+      "Machine Vision",
+      "Point-to-Point Programming",
+      "Automation Programming",
+      "Manufacturing Process Improvement",
+      "Drilling Automation",
+      "Robot Tooling",
+      "Production Systems",
+    ],
+    year: "Automation",
+    cover: "/projects/fanuc/IMG_0786.webp",
+  },
+  {
     id: "gripper-fixture",
     emphasis: "medium",
     title: "Robot Gripper & Fixture Development",

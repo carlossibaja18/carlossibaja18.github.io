@@ -55,8 +55,14 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Sizing/pivot: `camera-orbit="20deg 76deg 158%"` (zoomed out → fully visible w/ breathing room), `bounds="tight"`, `camera-target="auto"` so auto-rotate + mouse-drag rotate around the model's own center. exposure 1.18, tone-mapping neutral, rotation-per-second 10deg.
 - Verified pixel balance (mv.toDataURL sampling): warm ~17% / cool ~9% / neutral ~74%. Click/drag/chip/modal/regressions all pass.
 
+## FANUC Vision-Guided Dual-Robot Trim & Drill Automation (DELIVERED — iteration_11, 100% pass, 2026-07)
+- New 2nd project (medium-large, emphasis:'large') in PROJECTS; Cobot remains primary featured. id 'fanuc-vision-trim-drill-automation', custom:'fanuc'.
+- New DARK case study `/app/frontend/src/components/FanucCaseStudy.jsx` reusing the existing floating centered ProjectModal system (branch added in ProjectModal.jsx on custom==='fanuc' -> dark #080A0D container). Sticky project label, scrollable, accessible lightbox (data-testid fanuc-lightbox), close btn + Escape.
+- Story order (all 13 uploaded images used exactly once, hosted at /app/frontend/public/projects/fanuc/): HERO IMG_0786 → Manual (IMG_0968, IMG_0975) → Cell (IMG_0796, IMG_0501, IMG_4173, IMG_5146) → Tooling/Control (IMG_0790, IMG_0509, IMG_0810) → Vision (IMG_1116, vision-example.jpg[=749767389...], IMG_1096) → Outcome comparison (6 operators/~40 min → 2 FANUC robots/~6 min) → Contribution 2-col → Key Lesson callout.
+- Accuracy guardrails honored: two FANUC industrial robots drilling simultaneously, five shell models, ~40 min → ~6 min, periodic FANUC-engineer guidance + Carlos's day-to-day on-site ownership; no invented metrics/model numbers.
+- Proprietary text protection: IMG_0810 (teach-pendant program text incl. email/names) and IMG_1096 (ROBOGUIDE point-name labels) regions blurred via PIL before hosting; source webp/jpg kept in /app/assets/fanuc-trim-drill/{batch1,batch2,batch3}. Original filenames preserved in FanucCaseStudy.jsx code comments.
+
 ## Backlog
-- P1: Replace placeholder photos/renders with Carlos's real robotics/CAD/prototype/drone media.
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
 - P2: (optional) swap studio-env.png for a real .hdr equirect for truer IBL and to silence HDRJPGLoader notice.
