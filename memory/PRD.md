@@ -65,6 +65,12 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 ## Projects Cleanup (2026-07)
 - Removed two projects completely per user request: "Robot Gripper & Fixture Development" (gripper-fixture) and "Faro / Fairino Robot Reliability Improvement" (faro-fairino-reliability), plus their unused stock-image constants. Projects grid now: Cobot (flagship) → FANUC Trim & Drill → CAD / 3D Printing.
 
+## FANUC Academy Credential (DELIVERED — iteration_12, 100% pass, 2026-07)
+- Added one clickable credential to About Me "Credentials & Engineering Archive": card `credential-fanuc-academy-card` opens a new DARK floating `CredentialModal` (App-level state, alongside ProjectModal). Existing 3 placeholder cards kept unchanged.
+- Credential: "FANUC HandlingTool Operation & Programming", FANUC Academy, Rochester Hills MI, 29-MAY-2026, 4-Day, Course ID J2P0310, instructor Keith Johnson (all real, from uploaded Certificate.pdf).
+- Certificate.pdf converted (pymupdf) → certificate.webp (inline, readable) + certificate.png (full-res lightbox), hosted at /app/frontend/public/credentials/fanuc-academy/ with 4 training photos (photo-568, IMG_5421, od_photo-630, photo-614). All 5 mapped assets used once; extra photo-535 was discarded.
+- Modal: title/metadata/opening copy → Certificate of Completion → Training at FANUC Academy → Hands-On Robot Programming → Workstation+Classroom → Training Focus (6 bullets) → Applying the Training. "Explore FANUC Automation Project →" (credential-project-link) closes the credential modal and opens the existing FANUC project modal. Lightbox, Escape, close, scroll-lock, mobile all verified.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.

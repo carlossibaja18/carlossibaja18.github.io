@@ -1,0 +1,23 @@
+{
+  "summary": "Frontend-only testing of the new FANUC Academy credential experience on Carlos Sibaja's dark portfolio. Verified: new credential card in About Me opens a dark centered floating modal (not a page), all 5 credential images load (HTTP 200 + naturalWidth>0), certificate is readable, section headings/metadata/Course ID/date/Training Focus/Applying the Training all present, certificate click opens lightbox and returns to modal on close, 'Explore FANUC Automation Project' link closes the credential modal and opens the existing FANUC project case-study modal (data-testid project-modal + fanuc-case-study, no duplicate), close button and Escape close the modal, body scroll is locked while open and restored on close, mobile 390x844 modal works with visible/tappable close, and regression checks confirm hero-centerpiece, projects grid (cobot/fanuc/cad-3d-printing) still render. No real runtime/image errors — only benign warnings (Lit dev mode, model-viewer HDR/SDR, framer-motion static-container note, WebGL GPU-stall notice).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Two elements share data-testid='credential-lightbox' (one in AboutMe legacy placeholders, one in CredentialModal). Only the CredentialModal one is rendered when the modal is open (the AboutMe lightbox is inside AnimatePresence and only mounts when a placeholder image is set — none currently have images), so behavior is correct today. Consider renaming one (e.g., 'about-lightbox') to eliminate the duplicate testid and prevent future ambiguity.",
+    "CredentialModal useEffect cleanup runs on every re-render because `zoom` is in the deps; while functional, it repeatedly resets document.body.style.overflow. Splitting into two effects (one for open/close scroll-lock, one for keydown with zoom dep) would be cleaner."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (skipped)", "frontend": "100%"},
+  "test_credentials": "None (static portfolio)",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Credential modal + FANUC Academy card verified end-to-end on desktop and mobile. Assets served under /credentials/fanuc-academy/ (all 200). The 'Explore FANUC Automation Project' hand-off correctly opens the existing PROJECTS entry 'fanuc-vision-trim-drill-automation' (project-modal + fanuc-case-study testids). Duplicate data-testid='credential-lightbox' exists in the DOM tree but does not cause conflicts because the AboutMe placeholder lightbox never mounts (no image assets bound to placeholders).",
+  "rca of the issue": "N/A — no bugs found."
+}

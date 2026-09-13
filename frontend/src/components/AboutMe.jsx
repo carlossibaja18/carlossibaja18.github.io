@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MapPin, Mail, Award, X, FileText } from "lucide-react";
+import { MapPin, Mail, Award, X, FileText, ArrowRight } from "lucide-react";
 import { Reveal } from "./Motion";
 
 const FOCUS = [
@@ -20,7 +20,7 @@ const CREDENTIALS = [
   { title: "Coursework & Awards", org: "To be added", date: "", note: "Relevant engineering coursework and recognitions.", image: null },
 ];
 
-export const AboutMe = () => {
+export const AboutMe = ({ onOpenCredential }) => {
   const [zoom, setZoom] = useState(null);
 
   return (
@@ -69,6 +69,38 @@ export const AboutMe = () => {
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {/* FANUC Academy — real credential experience (opens floating modal) */}
+            <motion.button
+              type="button"
+              onClick={onOpenCredential}
+              data-testid="credential-fanuc-academy-card"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="group text-left rounded-xl border border-[#67D7FF]/25 bg-[#151C22] overflow-hidden hover:border-[#67D7FF]/50 transition-colors duration-300 flex flex-col sm:col-span-2 lg:col-span-1"
+            >
+              <div className="relative w-full aspect-[4/3] grid place-items-center bg-[#f4f1ec] p-3">
+                <img
+                  src="/credentials/fanuc-academy/certificate.webp"
+                  alt="FANUC Certificate of Completion — HandlingTool Operation & Programming, Carlos Sibaja"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="p-5 border-t border-white/5 flex flex-col flex-1">
+                <h4 className="font-display text-[#F3F7FA] text-sm sm:text-base leading-snug">
+                  FANUC HandlingTool Operation &amp; Programming
+                </h4>
+                <p className="mt-1.5 text-[#9AA8B3] text-xs">FANUC Academy</p>
+                <p className="text-[#9AA8B3] text-xs">Rochester Hills, Michigan · May 2026</p>
+                <p className="mt-2 text-[#9AA8B3] text-xs leading-relaxed">4-Day Industrial Robot Programming Course</p>
+                <span className="mt-auto pt-4 inline-flex items-center gap-2 text-[#67D7FF] text-sm">
+                  View Academy Experience
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-200" />
+                </span>
+              </div>
+            </motion.button>
+
             {CREDENTIALS.map((c, i) => {
               const hasImg = Boolean(c.image);
               return (
@@ -139,7 +171,7 @@ export const AboutMe = () => {
           <motion.div
             className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-10"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            data-testid="credential-lightbox"
+            data-testid="about-credential-lightbox"
           >
             <div className="absolute inset-0 bg-[#080A0D]/92 backdrop-blur-sm" onClick={() => setZoom(null)} />
             <button onClick={() => setZoom(null)} className="absolute top-5 right-5 h-11 w-11 grid place-items-center rounded-full bg-white/10 border border-white/20 text-white" aria-label="Close">
