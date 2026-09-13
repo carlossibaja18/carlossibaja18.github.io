@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { MapPin, Mail, Award, X, FileText, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin, Mail, Award, ArrowRight } from "lucide-react";
 import { Reveal } from "./Motion";
 
 const FOCUS = [
@@ -13,16 +12,7 @@ const FOCUS = [
   "CAD & Prototype Development",
 ];
 
-// Add real certificate images here later: { image: "/credentials/xxx.jpg" }
-const CREDENTIALS = [
-  { title: "FANUC Certification", org: "FANUC", date: "", note: "Industrial robotics training & certification.", image: null },
-  { title: "Technical Training", org: "To be added", date: "", note: "Robotics, automation & manufacturing coursework.", image: null },
-  { title: "Coursework & Awards", org: "To be added", date: "", note: "Relevant engineering coursework and recognitions.", image: null },
-];
-
 export const AboutMe = ({ onOpenCredential }) => {
-  const [zoom, setZoom] = useState(null);
-
   return (
     <section id="about" className="relative py-24 sm:py-32">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10">
@@ -100,41 +90,6 @@ export const AboutMe = ({ onOpenCredential }) => {
                 </span>
               </div>
             </motion.button>
-
-            {CREDENTIALS.map((c, i) => {
-              const hasImg = Boolean(c.image);
-              return (
-                <motion.div
-                  key={c.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  data-testid={`credential-${i}`}
-                  className="rounded-xl border border-[#67D7FF]/15 bg-[#151C22] overflow-hidden"
-                >
-                  <button
-                    onClick={() => hasImg && setZoom(c)}
-                    className={`relative w-full aspect-[4/3] grid place-items-center bg-[#11171D] ${hasImg ? "cursor-zoom-in" : "cursor-default"}`}
-                    aria-label={hasImg ? `Enlarge ${c.title}` : `${c.title} credential image coming soon`}
-                  >
-                    {hasImg ? (
-                      <img src={c.image} alt={c.title} className="w-full h-full object-cover" />
-                    ) : (
-                      <div className="flex flex-col items-center gap-2 text-[#9AA8B3]">
-                        <FileText size={22} className="text-[#67D7FF]/60" />
-                        <span className="font-mono text-[10px] tracking-[0.15em] uppercase">Credential image coming soon</span>
-                      </div>
-                    )}
-                  </button>
-                  <div className="p-5 border-t border-white/5">
-                    <h4 className="text-[#F3F7FA] text-sm font-medium">{c.title}</h4>
-                    <p className="mt-1 text-[#9AA8B3] text-xs">{c.org}{c.date ? ` · ${c.date}` : ""}</p>
-                    {c.note && <p className="mt-2 text-[#9AA8B3] text-xs leading-relaxed">{c.note}</p>}
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
         </div>
 
@@ -165,22 +120,6 @@ export const AboutMe = ({ onOpenCredential }) => {
           </div>
         </Reveal>
       </div>
-
-      <AnimatePresence>
-        {zoom && (
-          <motion.div
-            className="fixed inset-0 z-[70] flex items-center justify-center p-4 sm:p-10"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            data-testid="about-credential-lightbox"
-          >
-            <div className="absolute inset-0 bg-[#080A0D]/92 backdrop-blur-sm" onClick={() => setZoom(null)} />
-            <button onClick={() => setZoom(null)} className="absolute top-5 right-5 h-11 w-11 grid place-items-center rounded-full bg-white/10 border border-white/20 text-white" aria-label="Close">
-              <X size={20} />
-            </button>
-            <img src={zoom.image} alt={zoom.title} className="relative max-w-3xl w-full max-h-[82vh] object-contain rounded-lg" />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
