@@ -72,6 +72,25 @@ export const PROJECTS = [
     cover: "/projects/fanuc/IMG_0786.webp",
   },
   {
+    id: "fiu-eco-engineering-vehicle",
+    emphasis: "medium",
+    custom: "eco",
+    date: "2022–2023",
+    title: "FIU Eco Engineering Club — Vehicle Design & Fabrication",
+    summary:
+      "As a junior member of FIU's Eco Engineering Club, I supported CAD work for the vehicle and aerodynamic shell in SolidWorks and contributed to hands-on fabrication — sanding, building, welding support, and assembly — for an energy-efficient Shell Eco-marathon urban-concept vehicle.",
+    tags: [
+      "CAD Support",
+      "Aerodynamic Shell Development",
+      "Hands-On Fabrication",
+      "SolidWorks",
+      "Composite Prototyping",
+      "Vehicle Packaging",
+    ],
+    year: "Student Project",
+    cover: "/projects/eco/IMG_1988.jpeg",
+  },
+  {
     id: "cad-3d-printing",
     emphasis: "medium",
     title: "CAD / 3D Printing / Prototype Work",

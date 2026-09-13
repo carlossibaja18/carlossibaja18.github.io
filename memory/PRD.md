@@ -71,6 +71,11 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Certificate.pdf converted (pymupdf) → certificate.webp (inline, readable) + certificate.png (full-res lightbox), hosted at /app/frontend/public/credentials/fanuc-academy/ with 4 training photos (photo-568, IMG_5421, od_photo-630, photo-614). All 5 mapped assets used once; extra photo-535 was discarded.
 - Modal: title/metadata/opening copy → Certificate of Completion → Training at FANUC Academy → Hands-On Robot Programming → Workstation+Classroom → Training Focus (6 bullets) → Applying the Training. "Explore FANUC Automation Project →" (credential-project-link) closes the credential modal and opens the existing FANUC project modal. Lightbox, Escape, close, scroll-lock, mobile all verified.
 
+## FIU Eco Engineering Club — Vehicle Design & Fabrication (DELIVERED — iteration_13, 100% pass, 2026-07)
+- New MEDIUM project card (id 'fiu-eco-engineering-vehicle', custom:'eco') added to Projects: order now Cobot(featured) → FANUC(large) → Eco(medium) → CAD/3D Printing. Opens a new DARK floating `EcoCaseStudy.jsx` via ProjectModal branch.
+- Role framed accurately: Carlos = JUNIOR FIU Eco club member doing CAD support (SolidWorks) + hands-on fabrication (sanding/building/welding support/assembly); explicitly NOT senior-design lead/owner/presenter. No invented metrics; simulation image labeled broader team context.
+- 14 uploaded ECO images hosted at /app/frontend/public/projects/eco/, each used exactly once: hero IMG_1988; ctx IMG_1980; CAD lead IMG_1984 + sections IMG_1982/IMG_1981 + 4-shot SolidWorks grid IMG_7445/7446/7447(.webp)+IMG_1983; foam buck IMG_1985; layup IMG_1987; event-track.webp (neutral caption, non-FIU car); poster IMG_5171 (exact disclosure caption, once); behind-the-scenes IMG_6070. Lightbox on every image; Escape/close/scroll-lock/mobile verified.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
