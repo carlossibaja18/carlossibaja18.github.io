@@ -74,7 +74,7 @@ export const Hero = ({ onOpenProject }) => {
             shadow-intensity="0.9"
             shadow-softness="1"
             exposure="1.18"
-            environment-image="/models/studio-env.png"
+            environment-image="/models/studio-env.hdr"
             style={{ width: "100%", height: "100%", background: "transparent", "--poster-color": "transparent" }}
           />
           {/* featured tag */}
