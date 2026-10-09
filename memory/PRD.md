@@ -81,6 +81,9 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Role framed as EARLY CAD-focused robotics supporting a collaborative student team (sophomore year FIU) — not team lead / full-robot designer / full programmer. Also supported teammates with smaller coding + fixture tasks.
 - 5 images at /app/frontend/public/projects/vex/, each used once in locked order: hero IMG_1975.webp → My Contribution IMG_1979+IMG_1977 → Design Focus IMG_1976 → What I Learned IMG_1978 (contain). Sections: Overview, My Contribution, Design Focus, What I Learned. Lightbox/Escape/close/mobile verified. (Card shows 3 of 4 tags — shared ProjectCard cap, intended.)
 
+## Removed CAD/3D Printing stock project (2026-07)
+- Deleted the generic "CAD / 3D Printing / Prototype Work" card (id 'cad-3d-printing') and its unused stock-image constants (PRINTER/PRINTER2/PRINTER3) per user request — it used stock imagery, not Carlos's real work. Projects now: Cobot (featured) → FANUC → FIU Eco → FIU VEX. Verified iteration_15 (100%).
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
