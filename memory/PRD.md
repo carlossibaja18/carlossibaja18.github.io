@@ -76,6 +76,11 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Role framed accurately: Carlos = JUNIOR FIU Eco club member doing CAD support (SolidWorks) + hands-on fabrication (sanding/building/welding support/assembly); explicitly NOT senior-design lead/owner/presenter. No invented metrics; simulation image labeled broader team context.
 - 14 uploaded ECO images hosted at /app/frontend/public/projects/eco/, each used exactly once: hero IMG_1988; ctx IMG_1980; CAD lead IMG_1984 + sections IMG_1982/IMG_1981 + 4-shot SolidWorks grid IMG_7445/7446/7447(.webp)+IMG_1983; foam buck IMG_1985; layup IMG_1987; event-track.webp (neutral caption, non-FIU car); poster IMG_5171 (exact disclosure caption, once); behind-the-scenes IMG_6070. Lightbox on every image; Escape/close/scroll-lock/mobile verified.
 
+## FIU VEX Robotics — CAD Drivetrain & Mounting Design (DELIVERED — iteration_14, 100% pass, 2026-07)
+- New SMALLER supporting project (id 'fiu-vex-robotics-cad', custom:'vex', emphasis:'medium') in Projects. Opens a CONCISE dark `VexCaseStudy.jsx` via ProjectModal branch (dark variants now: fanuc/eco/vex).
+- Role framed as EARLY CAD-focused robotics supporting a collaborative student team (sophomore year FIU) — not team lead / full-robot designer / full programmer. Also supported teammates with smaller coding + fixture tasks.
+- 5 images at /app/frontend/public/projects/vex/, each used once in locked order: hero IMG_1975.webp → My Contribution IMG_1979+IMG_1977 → Design Focus IMG_1976 → What I Learned IMG_1978 (contain). Sections: Overview, My Contribution, Design Focus, What I Learned. Lightbox/Escape/close/mobile verified. (Card shows 3 of 4 tags — shared ProjectCard cap, intended.)
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.

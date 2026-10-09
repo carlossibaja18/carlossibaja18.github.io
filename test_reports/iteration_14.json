@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only validation of new 'FIU VEX Robotics — CAD Drivetrain & Mounting Design' project card and dark case-study modal. VEX card (data-testid='project-card-fiu-vex-robotics-cad') renders with 2022–2023 date, title, tag pills, and 'View Case Study' CTA. Clicking opens the floating project-modal containing vex-case-study with the sticky 'FIU VEX Robotics · 2022–2023' label. All 5 images under /projects/vex/ (IMG_1975.webp hero, IMG_1979, IMG_1977, IMG_1976, IMG_1978) load in-browser with naturalWidth>0 and each appears exactly ONCE in the modal (zero broken, zero duplicates). Section bodies for 01 Overview, 02 My Contribution, 03 Design Focus, 04 What I Learned render with the correct copy (sophomore year at FIU, CAD design of wheel/drivetrain + supporting teammates with smaller coding/fixture tasks). Lightbox (vex-lightbox / vex-lightbox-close) opens on image click and closes back to the modal. Escape closes the modal; body overflow is restored to ''. Mobile viewport (390x844) renders single-column with tappable close button. Regression: cobot, fanuc, fiu-eco, cad-3d-printing cards all still present. No runtime JS errors or broken-image errors captured on page.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Projects section — VEX card",
+        "issues": ["Card visibly displays only the first 3 tag pills (CAD, Robotics, Mechanical Design); the 4th tag 'Fixture Support' from the data is not rendered on the card. The task description listed all 4 as expected pills. This appears to be a shared card-level tag-cap behavior (same pattern seen on other multi-tag cards), not a code regression — but worth confirming with the main agent whether 4 tags should display on the VEX card specifically."]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional: Confirm whether the VEX project card should display all 4 tags (CAD, Robotics, Mechanical Design, Fixture Support). Currently only the first 3 render on the card; the modal metadata line and underlying data correctly include all 4."
+  ],
+  "critical_code_review_comments": [
+    "VexCaseStudy.jsx is clean, concise (~150 lines), each of the 5 image constants used exactly once, correct testids (vex-case-study, vex-lightbox, vex-lightbox-close, modal-close-btn).",
+    "ProjectModal.jsx cleanly branches on project.custom ('cobot' | 'fanuc' | 'eco' | 'vex') with dark background for the three dark variants; Escape handler + body-overflow restore unchanged — regressions avoided.",
+    "portfolio.js PROJECTS entry 'fiu-vex-robotics-cad' uses emphasis:'medium' and cover /projects/vex/IMG_1975.webp — consistent with pattern.",
+    "Minor: card-level tag truncation (3 of 4 tags shown) is handled by the ProjectCard component (not reviewed in this iteration); verify intended cap behavior."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "n/a (skipped per request)", "frontend": "100% (all critical VEX checks + regressions pass)" },
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iteration 14 added the 5th project (FIU VEX Robotics CAD). The dark modal pattern now has 3 users (FANUC, Eco, VEX) sharing the same bg-[#080A0D] shell inside ProjectModal.jsx. All 5 VEX images are physically present under /app/frontend/public/projects/vex/ and load correctly in the browser. HTTP HEAD requests via urllib returned 403 due to CDN User-Agent filtering (not a real asset issue — browser loads fine, naturalWidth>0 for all 5). Minor open question: whether the VEX project card should show 4 tag pills instead of 3 (ProjectCard tag-cap behavior).",
+  "rca of the issue": "No issues requiring RCA. Only cosmetic observation: card displays 3/4 tags — appears to be a shared ProjectCard tag-cap, not a bug introduced by this iteration."
+}
