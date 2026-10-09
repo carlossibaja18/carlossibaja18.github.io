@@ -84,6 +84,11 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 ## Removed CAD/3D Printing stock project (2026-07)
 - Deleted the generic "CAD / 3D Printing / Prototype Work" card (id 'cad-3d-printing') and its unused stock-image constants (PRINTER/PRINTER2/PRINTER3) per user request — it used stock imagery, not Carlos's real work. Projects now: Cobot (featured) → FANUC → FIU Eco → FIU VEX. Verified iteration_15 (100%).
 
+## Projects Grid Rebalance (DELIVERED — iteration_16, 100% pass, 2026-07)
+- After the project count dropped 5→4, rebalanced the 6-col Projects grid per user choice ("tiered editorial"): Cobot stays full-width flagship (unchanged, Flagship badge); FANUC upgraded to a second full-width horizontal card (image left w/ taller h-64/sm:h-[380px] treatment, text right, NO badge, emphasis 'large' now md:col-span-6); FIU Eco + FIU VEX are equal half-width cards (md:col-span-3, image h-52→h-60).
+- User note honored: Cobot already has the floating 3D hero, so FANUC now carries comparable visual weight — Cobot is not the sole standout.
+- Only Projects.jsx changed (SPAN map + new 'large' horizontal branch). No data/modal/case-study files touched. Verified at 1366/768/390: no gaps, modals all open/close, hero/Timeline/credential/resume regressions clean, zero console errors.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: Update LinkedIn URL from root to actual profile; add real contact links.
