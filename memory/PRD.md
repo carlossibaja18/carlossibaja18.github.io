@@ -94,9 +94,13 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Same art direction preserved: overhead cool-white softbox key, secondary upper-right fill, cool-blue rim lower-left, warm-orange rim right, dark floor, gentle floor bounce. Avg luminance ~0.39 matches the old map's diffuse mood at the existing exposure 1.18; only speculars/reflections gain punch.
 - Hero.jsx environment-image now `/models/studio-env.hdr`; old PNG deleted. Verified: model loads, warm/cool rims + joint-cap speculars visible, zero console errors, HDRJPGLoader notice gone.
 
+## LinkedIn Profile Link (DELIVERED — 2026-07)
+- Real profile URL `https://www.linkedin.com/in/carlos-sibaja-enginnering` (verbatim as user provided — note "enginnering" spelling) set once in `PROFILE.linkedin` / `LINKS` in portfolio.js.
+- Surfaced in UI (previously the data was unused): About Me contact card gains a LinkedIn row (`about-linkedin`, lucide Linkedin icon, opens new tab) and Footer nav gains a LINKEDIN link (`footer-linkedin`). Both hrefs verified in preview.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
-- P2: Update LinkedIn URL from root to actual profile; add real contact links.
+- P2: (done) LinkedIn URL.
 
 ## Next Tasks
 - **Timeline redesigned (iteration_7, 100%):** 8 exact chronological milestones (Mission Vista HS → VEX → FIU BSME 2021–2027 → ECO/VEX → San Diego exploration → Watkins Wellness Jan 2026–Present w/ expandable role details → FANUC HandlingTool May 2026 → Cobot 2026). Alternating rail w/ scroll-fill blue line, reduced-motion aware, mobile left-rail stack. Last milestone's "View Cobot Case Study →" opens the PRESERVED cobot modal. No invented facts/images.

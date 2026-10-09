@@ -1,6 +1,7 @@
 import { toast } from "sonner";
 import { scrollToId } from "./SmoothScroll";
 import { RESUME_URL } from "./ResumeModule";
+import { PROFILE } from "../data/portfolio";
 
 const LINKS = [
   { label: "Home", id: "home" },
@@ -37,6 +38,15 @@ export const Footer = () => {
               {l.label}
             </button>
           ))}
+          <a
+            href={PROFILE.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="footer-linkedin"
+            className="text-[#9AA8B3] hover:text-[#67D7FF] text-xs tracking-[0.15em] uppercase transition-colors"
+          >
+            LinkedIn
+          </a>
           <a
             href={RESUME_URL || "#"}
             target={RESUME_URL ? "_blank" : undefined}

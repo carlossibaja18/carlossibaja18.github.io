@@ -14,12 +14,12 @@ export const PROFILE = {
     "I build, test, and refine real hardware — cobots, tooling, fixtures, and prototypes. My work lives where mechanical design meets the shop floor: turning manual, inconsistent processes into repeatable, manufacturable systems. I'm now focused on mechanical design and product development roles.",
   location: "San Diego, CA · Relocating to Miami, FL — Dec 2026",
   email: "Carlossibaja18@gmail.com",
-  linkedin: "https://www.linkedin.com/",
+  linkedin: "https://www.linkedin.com/in/carlos-sibaja-enginnering",
   focus: ["Robotics", "Automation", "Tooling & Fixtures", "CAD", "Prototyping", "Testing"],
 };
 
 export const LINKS = [
-  { label: "LinkedIn", value: "Connect professionally", href: "https://www.linkedin.com/", icon: "linkedin" },
+  { label: "LinkedIn", value: "Connect professionally", href: "https://www.linkedin.com/in/carlos-sibaja-enginnering", icon: "linkedin" },
   { label: "Email", value: "Carlossibaja18@gmail.com", href: "mailto:Carlossibaja18@gmail.com", icon: "mail" },
   { label: "Resume", value: "Download PDF", href: "#resume", icon: "file", action: "resume" },
   { label: "Drone Work", value: "Aerial photography", href: "#drone", icon: "camera", action: "scroll" },

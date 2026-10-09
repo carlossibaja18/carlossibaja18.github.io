@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { MapPin, Mail, Award, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Linkedin, Award, ArrowRight } from "lucide-react";
 import { Reveal } from "./Motion";
+import { PROFILE } from "../data/portfolio";
 
 const FOCUS = [
   "Mechanical Design",
@@ -115,6 +116,16 @@ export const AboutMe = ({ onOpenCredential }) => {
               >
                 <Mail size={16} className="text-[#67D7FF] shrink-0" />
                 Carlossibaja18@gmail.com
+              </a>
+              <a
+                href={PROFILE.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="about-linkedin"
+                className="flex items-center gap-3 text-[#F3F7FA] text-sm hover:text-[#67D7FF] transition-colors"
+              >
+                <Linkedin size={16} className="text-[#67D7FF] shrink-0" />
+                linkedin.com/in/carlos-sibaja-enginnering
               </a>
             </div>
           </div>
