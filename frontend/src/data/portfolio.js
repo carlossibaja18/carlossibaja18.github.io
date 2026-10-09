@@ -5,10 +5,6 @@ export const HERO_CENTERPIECE = `${GEN}/84a32f373a4b16f38c11faf4b0683fbb372f4b09
 const IMG = (slug, ix) =>
   `https://images.unsplash.com/photo-${slug}?crop=entropy&cs=srgb&fm=jpg&ixid=${ix}&ixlib=rb-4.1.0&q=85`;
 
-const PRINTER = IMG("1642969164999-979483e21601", "M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxDQUQlMjAzRCUyMHByaW50aW5nJTIwcHJvdG90eXBlJTIwZW5naW5lZXJpbmd8ZW58MHx8fHwxNzgzOTk5MDQwfDA");
-const PRINTER2 = IMG("1611117775350-ac3950990985", "M3w4NjA1MDV8MHwxfHNlYXJjaHwyfHxDQUQlMjAzRCUyMHByaW50aW5nJTIwcHJvdG90eXBlJTIwZW5naW5lZXJpbmd8ZW58MHx8fHwxNzgzOTk5MDQwfDA");
-const PRINTER3 = IMG("1702390600380-5dc2bb300025", "M3w4NjA1MDV8MHwxfHNlYXJjaHwzfHxDQUQlMjAzRCUyMHByaW50aW5nJTIwcHJvdG90eXBlJTIwZW5naW5lZXJpbmd8ZW58MHx8fHwxNzgzOTk5MDQwfDA");
-
 export const PROFILE = {
   name: "Carlos Sibaja",
   subtitle: "Engineering",
@@ -101,43 +97,6 @@ export const PROJECTS = [
     tags: ["CAD", "Robotics", "Mechanical Design", "Fixture Support"],
     year: "Student Project",
     cover: "/projects/vex/IMG_1975.webp",
-  },
-  {
-    id: "cad-3d-printing",
-    emphasis: "medium",
-    title: "CAD / 3D Printing / Prototype Work",
-    summary: "A selection of CAD models, printed prototypes, and functional parts.",
-    tags: ["CAD", "3D Printing", "Design"],
-    year: "Design",
-    cover: PRINTER,
-    hero: PRINTER,
-    blocks: [
-      {
-        label: "Overview",
-        body:
-          "The design-to-part workflow: from concept and parametric CAD to functional 3D-printed prototypes ready for testing — always modeling with manufacturability in mind.",
-      },
-      {
-        label: "My Role",
-        body:
-          "I model parts in CAD, then print, assemble, and test — refining wall thickness, tolerances, and print orientation for strong, functional results.",
-      },
-      {
-        type: "gallery",
-        title: "Prototypes",
-        layout: "grid",
-        images: [
-          { url: PRINTER2, caption: "Tuning print orientation and infill for strength." },
-          { url: PRINTER3, caption: "Functional prototype ready for fit-checks." },
-        ],
-      },
-      {
-        label: "Outcome & Lesson",
-        highlight: true,
-        body:
-          "A steady library of functional prototypes that de-risk designs before production. Lesson: designing for the manufacturing method from the first sketch saves the most time downstream.",
-      },
-    ],
   },
 ];
 
