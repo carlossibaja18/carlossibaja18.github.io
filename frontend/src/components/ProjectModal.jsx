@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import { CobotCaseStudy } from "./CobotCaseStudy";
 import { FanucCaseStudy } from "./FanucCaseStudy";
 import { EcoCaseStudy } from "./EcoCaseStudy";
+import { VexCaseStudy } from "./VexCaseStudy";
 
 export const ProjectModal = ({ project, onClose }) => {
   useEffect(() => {
@@ -21,6 +22,7 @@ export const ProjectModal = ({ project, onClose }) => {
   const isCobot = project?.custom === "cobot";
   const isFanuc = project?.custom === "fanuc";
   const isEco = project?.custom === "eco";
+  const isVex = project?.custom === "vex";
 
   return (
     <AnimatePresence>
@@ -40,7 +42,7 @@ export const ProjectModal = ({ project, onClose }) => {
             exit={{ scale: 0.97, opacity: 0, y: 24 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className={`relative sm:rounded-2xl w-full sm:w-[94vw] max-w-5xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] ${
-              isCobot ? "bg-[#f4f1ec]" : isFanuc || isEco ? "bg-[#080A0D] sm:border sm:border-[#67D7FF]/12" : "bg-slate-900 sm:border sm:border-white/10"
+              isCobot ? "bg-[#f4f1ec]" : isFanuc || isEco || isVex ? "bg-[#080A0D] sm:border sm:border-[#67D7FF]/12" : "bg-slate-900 sm:border sm:border-white/10"
             }`}
           >
             {isCobot ? (
@@ -49,6 +51,8 @@ export const ProjectModal = ({ project, onClose }) => {
               <FanucCaseStudy onClose={onClose} />
             ) : isEco ? (
               <EcoCaseStudy onClose={onClose} />
+            ) : isVex ? (
+              <VexCaseStudy onClose={onClose} />
             ) : (
               <>
                 <button

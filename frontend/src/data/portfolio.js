@@ -91,6 +91,18 @@ export const PROJECTS = [
     cover: "/projects/eco/IMG_1988.jpeg",
   },
   {
+    id: "fiu-vex-robotics-cad",
+    emphasis: "medium",
+    custom: "vex",
+    date: "2022–2023",
+    title: "FIU VEX Robotics — CAD Drivetrain & Mounting Design",
+    summary:
+      "During my sophomore year at Florida International University, I contributed to a VEX competition robot through CAD design of wheel/drivetrain components and mounting points — an early hands-on introduction to CAD, robotics packaging, and turning digital concepts into real competition hardware. I also supported teammates with smaller coding and fixture tasks during build iterations.",
+    tags: ["CAD", "Robotics", "Mechanical Design", "Fixture Support"],
+    year: "Student Project",
+    cover: "/projects/vex/IMG_1975.webp",
+  },
+  {
     id: "cad-3d-printing",
     emphasis: "medium",
     title: "CAD / 3D Printing / Prototype Work",
