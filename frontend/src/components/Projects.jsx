@@ -5,7 +5,7 @@ import { Reveal } from "./Motion";
 
 const SPAN = {
   featured: "md:col-span-6",
-  large: "md:col-span-4",
+  large: "md:col-span-6",
   medium: "md:col-span-3",
   standard: "md:col-span-2",
 };
@@ -30,6 +30,7 @@ export const Projects = ({ onOpen }) => {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-6 gap-5 lg:gap-6">
           {PROJECTS.map((p, i) => {
             const featured = p.emphasis === "featured";
+            const large = p.emphasis === "large";
             return (
               <motion.button
                 key={p.id}
@@ -73,9 +74,38 @@ export const Projects = ({ onOpen }) => {
                       </span>
                     </div>
                   </div>
+                ) : large ? (
+                  <div className="grid sm:grid-cols-2">
+                    <div className="relative h-64 sm:h-[380px] overflow-hidden">
+                      <img
+                        src={p.cover}
+                        alt={p.title}
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-[600ms]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#11171D]/30 sm:to-[#11171D]" />
+                    </div>
+                    <div className="p-7 sm:p-10 flex flex-col justify-center">
+                      <span className="font-mono text-xs tracking-[0.2em] text-[#67D7FF]">{p.date || "—"}</span>
+                      <h3 className="mt-3 font-display font-light text-2xl sm:text-3xl text-[#F3F7FA] leading-tight tracking-tight">
+                        {p.title}
+                      </h3>
+                      <p className="mt-3 text-[#9AA8B3] text-sm leading-relaxed max-w-md">{p.summary}</p>
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {p.tags.slice(0, 4).map((t) => (
+                          <span key={t} className="text-[11px] font-mono tracking-wide uppercase text-[#9AA8B3] border border-white/10 rounded px-2 py-1">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <span className="mt-7 inline-flex items-center gap-2 text-[#67D7FF] text-sm font-medium">
+                        View Case Study
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
+                      </span>
+                    </div>
+                  </div>
                 ) : (
                   <div className="flex flex-col h-full">
-                    <div className="relative h-52 overflow-hidden">
+                    <div className="relative h-60 overflow-hidden">
                       <img
                         src={p.cover}
                         alt={p.title}
