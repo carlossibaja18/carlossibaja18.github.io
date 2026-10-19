@@ -64,6 +64,7 @@ export const CredentialModal = ({ open, onClose, onOpenProject }) => {
             exit={{ scale: 0.97, opacity: 0, y: 24 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="relative sm:rounded-2xl w-full sm:w-[94vw] max-w-5xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto bg-[#080A0D] sm:border sm:border-[#67D7FF]/12 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] text-[#F3F7FA]"
+            data-lenis-prevent=""
           >
             {/* Sticky label + close */}
             <div className="sticky top-0 z-30 flex items-center justify-between px-5 sm:px-8 py-3 bg-[#080A0D]/85 backdrop-blur border-b border-[#67D7FF]/12">

@@ -98,6 +98,10 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Real profile URL `https://www.linkedin.com/in/carlos-sibaja-enginnering` (verbatim as user provided — note "enginnering" spelling) set once in `PROFILE.linkedin` / `LINKS` in portfolio.js.
 - Surfaced in UI (previously the data was unused): About Me contact card gains a LinkedIn row (`about-linkedin`, lucide Linkedin icon, opens new tab) and Footer nav gains a LINKEDIN link (`footer-linkedin`). Both hrefs verified in preview.
 
+## Modal Trackpad/Wheel Scroll Fix (DELIVERED — 2026-07)
+- User bug: trackpad two-finger scroll did nothing inside project/credential modals — only scrollbar dragging worked. Root cause: Lenis smooth-scroll intercepts wheel events at root level; with body locked, the modal's own overflow container never received native wheel scrolling.
+- Fix: added `data-lenis-prevent` to the scroll containers in ProjectModal.jsx (covers all 4 case studies) and CredentialModal.jsx. Verified with real wheel events: FANUC modal scrollTop 0→1440→0, credential modal 0→1440; no regressions.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.

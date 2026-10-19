@@ -44,6 +44,7 @@ export const ProjectModal = ({ project, onClose }) => {
             className={`relative sm:rounded-2xl w-full sm:w-[94vw] max-w-5xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] ${
               isCobot ? "bg-[#f4f1ec]" : isFanuc || isEco || isVex ? "bg-[#080A0D] sm:border sm:border-[#67D7FF]/12" : "bg-slate-900 sm:border sm:border-white/10"
             }`}
+            data-lenis-prevent=""
           >
             {isCobot ? (
               <CobotCaseStudy onClose={onClose} />
