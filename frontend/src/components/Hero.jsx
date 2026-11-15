@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import "@google/model-viewer";
 import { PROJECTS } from "../data/portfolio";
+import { HeroRobot } from "./HeroRobot";
 import { scrollToId } from "./SmoothScroll";
-
-const MODEL = "/models/fairino-fr3-wms.glb";
 
 export const Hero = ({ onOpenProject }) => {
   const featured = PROJECTS.find((p) => p.featured);
@@ -55,28 +53,7 @@ export const Hero = ({ onOpenProject }) => {
           data-testid="hero-featured-card"
           aria-label={`Open case study: ${featured?.title}`}
         >
-          <model-viewer
-            src={MODEL}
-            data-testid="hero-centerpiece"
-            alt="Interactive 3D model of the FAIRINO FR3-WMS collaborative robot — Cobot Ultrasonic Welding Automation"
-            camera-controls=""
-            {...(reduced ? {} : { "auto-rotate": "", "auto-rotate-delay": "600", "rotation-per-second": "10deg" })}
-            interaction-prompt="none"
-            disable-zoom=""
-            bounds="tight"
-            orientation="0deg -90deg 0deg"
-            camera-target="auto"
-            camera-orbit="20deg 76deg 158%"
-            min-camera-orbit="auto 45deg auto"
-            max-camera-orbit="auto 100deg auto"
-            field-of-view="30deg"
-            tone-mapping="neutral"
-            shadow-intensity="0.9"
-            shadow-softness="1"
-            exposure="1.18"
-            environment-image="/models/studio-env.hdr"
-            style={{ width: "100%", height: "100%", background: "transparent", "--poster-color": "transparent" }}
-          />
+          <HeroRobot />
           {/* featured tag */}
           <span className="pointer-events-none absolute top-2 left-2 flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-[#67D7FF]" />
