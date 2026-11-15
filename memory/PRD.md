@@ -125,6 +125,11 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Test hooks on `data-testid=hero-centerpiece`: `__scene`, `__setTime(sec)`, `__isRunning()`.
 - Verified: 0/25/50/75/100% checkpoint stills show connected elbow and wand-root seams, no dislocation, flange never aims at base; pause offscreen/tab-hidden; reduced-motion static Home; orbit drag works, click opens Cobot modal; hero layout/scale/lighting unchanged; zero console errors.
 
+## Currently Building Section (DELIVERED — iteration_20, 100% pass, 2026-07)
+- New `CurrentlyBuilding.jsx` inserted between Projects and Timeline in App.js. Kicker "03 / Currently Building", title "Currently Building", exact subheading "AI in practice. I am using AI to make SolidWorks and DFM faster, not learning AI as a separate skill."
+- Exactly 3 cards (same card style as Skills: rounded-xl border-[#67D7FF]/15 bg-[#11171D] p-7, status pill, bullets, grey PlaceholderBox for links): 1) Parametric CAD Generator (Building) 2) AI-Assisted DFM Workflow (Testing) 3) CAD Automation Macros (Building) — exact titles/descriptions/bullets per user; link placeholders "[TO ADD: GitHub repo link here]" ×2 and "[TO ADD: workflow notes or example output link here]" ×1.
+- Section renumbering: Timeline → "04 / Timeline", About Me → "05 / About Me". Nav labels unchanged per instructions. No changes to hero/Skills/Projects order or styling.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.
