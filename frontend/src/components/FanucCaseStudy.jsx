@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ZoomIn, ArrowDown } from "lucide-react";
 import { Reveal } from "./Motion";
+import { ResultsTable, PlaceholderBox } from "./CaseStudyShared";
 
 const ACCENT = "#67D7FF";
 
@@ -287,6 +288,47 @@ export const FanucCaseStudy = ({ onClose }) => {
           </figure>
         </Reveal>
       </section>
+
+      <Divider />
+
+      {/* 9 — PROBLEM (recruiter summary) */}
+      <Section n="07" label="Problem" heading="Problem">
+        <Body>Trimming and drilling shells by hand took 6 operators and 40 minutes per shell.</Body>
+      </Section>
+
+      {/* 10 — MY ROLE */}
+      <Section n="08" label="My Role" heading="My Role">
+        <Body>I refined the robot programs and tuned the vision system for production use across 5 shell models.</Body>
+      </Section>
+
+      {/* 11 — WHAT I DID */}
+      <Section n="09" label="What I Did" heading="What I Did">
+        <BulletList
+          items={[
+            "Refined point-to-point robot programs for trim and drill paths",
+            "Tuned vision and lighting for reliable part detection across 5 shell models",
+            "Worked on a dual-robot cell for trim and drill operations",
+          ]}
+        />
+      </Section>
+
+      {/* 12 — RESULTS */}
+      <Section n="10" label="Results" heading="Results">
+        <ResultsTable
+          testid="fanuc-results-table"
+          dark
+          rows={[
+            ["Operators per shell", "6 operators", "2 robots"],
+            ["Time per shell", "40 minutes", "6 minutes"],
+            ["Shell models supported", "[TO ADD: Before]", "5 models"],
+          ]}
+        />
+        <div className="mt-6 grid sm:grid-cols-3 gap-4">
+          <PlaceholderBox dark testid="fanuc-placeholder-cell-layout-photo" label="[TO ADD: Upload cell layout photo here]" />
+          <PlaceholderBox dark testid="fanuc-placeholder-vision-setup-photo" label="[TO ADD: Upload vision setup photo here]" />
+          <PlaceholderBox dark testid="fanuc-placeholder-cycle-time-data" label="[TO ADD: Upload cycle time data here]" />
+        </div>
+      </Section>
 
       {/* Lightbox */}
       <AnimatePresence>

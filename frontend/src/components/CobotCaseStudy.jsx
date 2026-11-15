@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import { Reveal } from "./Motion";
+import { ResultsTable, PlaceholderBox } from "./CaseStudyShared";
 
 const ACCENT = "#15628f"; // restrained industrial blue, inspired by the pneumatic tubing
 
@@ -226,6 +227,65 @@ export const CobotCaseStudy = ({ onClose }) => {
           ))}
         </div>
       </section>
+
+      <div className="mx-6 sm:mx-14 border-t border-black/10" />
+
+      {/* 10 — PROBLEM (recruiter summary) */}
+      <Section n="08" label="Problem" heading="Problem">
+        <Body>
+          Ultrasonic welding cell at Watkins Wellness needed consistent, repeatable welds, but the manual process was
+          variable and slow.
+        </Body>
+      </Section>
+
+      {/* 11 — MY ROLE */}
+      <Section n="09" label="My Role" heading="My Role">
+        <Body>
+          Manufacturing Engineer, Watkins Wellness, January 2026 to present. I designed the fixtures, integrated the
+          automation, and programmed the cobot.
+        </Body>
+      </Section>
+
+      {/* 12 — DESIGN */}
+      <Section n="10" label="Design" heading="Design">
+        <ul className="mt-2 space-y-3.5 max-w-2xl">
+          {[
+            "Designed fixtures for consistent part location during welding",
+            "Designed a custom 3D-printed holder for the ultrasonic welder",
+            "Integrated vacuum and pneumatic handling for part loading and unloading",
+            "Programmed the cobot for the weld cycle",
+          ].map((it, i) => (
+            <li key={i} className="flex gap-3.5 text-[#454c57] text-sm sm:text-base leading-relaxed">
+              <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ACCENT }} />
+              {it}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* 13 — RESULTS */}
+      <Section n="11" label="Results" heading="Results">
+        <ResultsTable
+          testid="cobot-results-table"
+          dark={false}
+          accent={ACCENT}
+          rows={[
+            ["Weld cycle time", "[TO ADD: Before]", "[TO ADD: After]"],
+            ["Weld repeatability", "[TO ADD: Before]", "[TO ADD: After]"],
+            ["Scrap or defect rate", "[TO ADD: Before]", "[TO ADD: After]"],
+          ]}
+        />
+        <div className="mt-6 grid sm:grid-cols-3 gap-4">
+          <PlaceholderBox dark={false} testid="cobot-placeholder-fixture-photo" label="[TO ADD: Upload fixture photo here]" />
+          <PlaceholderBox dark={false} testid="cobot-placeholder-welder-holder-cad" label="[TO ADD: Upload welder holder CAD screenshot here]" />
+          <PlaceholderBox dark={false} testid="cobot-placeholder-pneumatic-vacuum-diagram" label="[TO ADD: Upload pneumatic and vacuum diagram here]" />
+        </div>
+      </Section>
+
+      {/* 14 — LESSON LEARNED */}
+      <Section n="12" label="Lesson Learned" heading="Lesson Learned">
+        <Body>A faster robot does not fix a variable process.</Body>
+      </Section>
 
       {/* Lightbox */}
       <AnimatePresence>

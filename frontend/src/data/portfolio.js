@@ -117,19 +117,19 @@ export const TIMELINE = [
     meta: ["Robotics", "Assembly", "Design Support"],
   },
   {
-    date: "2021–2027",
+    date: "2021–2028",
     title: "B.S. Mechanical Engineering",
     context: "Florida International University · Miami, Florida",
     desc: "I began pursuing a B.S. in Mechanical Engineering at Florida International University in 2021. My academic work expanded my experience with CAD, engineering projects, and practical problem solving while strengthening my focus on design and product development.",
     meta: ["Mechanical Design", "CAD", "Engineering Analysis"],
-    note: "Expected Graduation: 2027",
+    note: "Expected Graduation: 2028",
   },
   {
     date: "2024–2025",
     title: "ECO Engineering + FIU VEX Robotics",
     context: "Vehicle Design · Robotics Competition · Florida International University",
-    desc: "I contributed to an eco-vehicle project through the ECO Engineering club and joined the FIU VEX Robotics club, competing in a robotics competition. During this period I also developed a hydraulic-cylinder CAD project, worked on personal designs, and supported peers in bringing engineering concepts to life.",
-    meta: ["Eco Vehicle", "VEX Robotics", "CAD", "Hydraulic Cylinder Design"],
+    desc: "I contributed to an eco-vehicle project through the ECO Engineering club and joined the FIU VEX Robotics club, competing in a robotics competition. During this period I also worked on personal designs and supported peers in bringing engineering concepts to life.",
+    meta: ["Eco Vehicle", "VEX Robotics", "CAD"],
   },
   {
     date: "2025",

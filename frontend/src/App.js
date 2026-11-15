@@ -3,6 +3,7 @@ import "@/App.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { ProjectModal } from "@/components/ProjectModal";
 import { CredentialModal } from "@/components/CredentialModal";
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       <main>
         <Hero onOpenProject={setSelected} />
+        <Skills />
         <Projects onOpen={setSelected} />
         <Timeline onOpen={setSelected} />
         <AboutMe onOpenCredential={() => setCredentialOpen(true)} />
