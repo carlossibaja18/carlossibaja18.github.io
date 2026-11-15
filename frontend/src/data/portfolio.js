@@ -143,11 +143,11 @@ export const TIMELINE = [
     title: "Manufacturing Engineer",
     context: "Watkins Wellness · Vista, California",
     desc: "At Watkins Wellness I apply mechanical engineering in a manufacturing environment through automation, robotics, CNC processes, fixture development, documentation, and production support. The role connects design decisions to real manufacturing constraints while building hands-on experience with robot programming, mechanical tooling, and process development.",
-    meta: ["FANUC", "Farino Cobot", "CNC", "Mastercam", "G-Code", "Fixtures", "Automation"],
+    meta: ["FANUC", "FAIRINO Cobot", "CNC", "Mastercam", "G-Code", "Fixtures", "Automation"],
     featured: true,
     details: [
       "Supported FANUC trim-and-drill processes.",
-      "Programmed FANUC robots and a Farino collaborative robot.",
+      "Programmed FANUC robots and a Fairino collaborative robot.",
       "Organized PKZs and supported work-instruction development.",
       "Supported CNC operations and wrote Mastercam programs for precision cutting.",
       "Designed, repaired, and improved fixtures and mechanical support hardware.",

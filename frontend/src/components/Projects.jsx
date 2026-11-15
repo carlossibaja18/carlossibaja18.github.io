@@ -12,7 +12,7 @@ const SPAN = {
 
 export const Projects = ({ onOpen }) => {
   return (
-    <section id="projects" className="relative py-24 sm:py-32">
+    <section id="projects" className="relative pt-24 pb-12 sm:pt-32 sm:pb-16">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10">
         <Reveal>
           <div className="max-w-3xl">

@@ -42,7 +42,7 @@ const CARDS = [
 
 export const CurrentlyBuilding = () => {
   return (
-    <section id="currently-building" data-testid="currently-building-section" className="relative py-24 sm:py-32">
+    <section id="currently-building" data-testid="currently-building-section" className="relative py-12 sm:py-16">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10">
         <Reveal>
           <div className="max-w-3xl">

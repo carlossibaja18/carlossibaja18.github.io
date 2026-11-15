@@ -12,7 +12,7 @@ export const Timeline = ({ onOpen }) => {
   const cobot = PROJECTS.find((p) => p.custom === "cobot");
 
   return (
-    <section id="timeline" className="relative py-24 sm:py-32 bg-[#0a0d11]">
+    <section id="timeline" className="relative pt-24 pb-12 sm:pt-32 sm:pb-16 bg-[#0a0d11]">
       <div className="absolute inset-0 grid-lines opacity-[0.08] pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-6 sm:px-10">
         <Reveal>

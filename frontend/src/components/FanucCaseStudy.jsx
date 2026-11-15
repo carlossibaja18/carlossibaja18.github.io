@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ZoomIn, ArrowDown } from "lucide-react";
 import { Reveal } from "./Motion";
-import { ResultsTable, PlaceholderBox } from "./CaseStudyShared";
+import { ResultsTable } from "./CaseStudyShared";
 
 const ACCENT = "#67D7FF";
 
@@ -216,8 +216,8 @@ export const FanucCaseStudy = ({ onClose }) => {
       {/* 6 — OUTCOME */}
       <section className="px-6 sm:px-14 py-16 sm:py-20">
         <Reveal>
-          <span className="font-mono text-[11px] tracking-[0.24em] uppercase" style={{ color: ACCENT }}>05 — Outcome</span>
-          <h2 className="mt-4 font-display font-light text-2xl sm:text-4xl tracking-tight">A Faster, More Repeatable Process</h2>
+          <span className="font-mono text-[11px] tracking-[0.24em] uppercase" style={{ color: ACCENT }}>05 — Results</span>
+          <h2 className="mt-4 font-display font-light text-2xl sm:text-4xl tracking-tight">Results</h2>
         </Reveal>
         <Reveal delay={0.05}>
           <div className="mt-10 grid md:grid-cols-[1fr_auto_1fr] items-stretch gap-6">
@@ -312,7 +312,7 @@ export const FanucCaseStudy = ({ onClose }) => {
         />
       </Section>
 
-      {/* 12 — RESULTS */}
+      {/* 12 — RESULTS TABLE */}
       <Section n="10" label="Results" heading="Results">
         <ResultsTable
           testid="fanuc-results-table"
@@ -320,14 +320,8 @@ export const FanucCaseStudy = ({ onClose }) => {
           rows={[
             ["Operators per shell", "6 operators", "2 robots"],
             ["Time per shell", "40 minutes", "6 minutes"],
-            ["Shell models supported", "[TO ADD: Before]", "5 models"],
           ]}
         />
-        <div className="mt-6 grid sm:grid-cols-3 gap-4">
-          <PlaceholderBox dark testid="fanuc-placeholder-cell-layout-photo" label="[TO ADD: Upload cell layout photo here]" />
-          <PlaceholderBox dark testid="fanuc-placeholder-vision-setup-photo" label="[TO ADD: Upload vision setup photo here]" />
-          <PlaceholderBox dark testid="fanuc-placeholder-cycle-time-data" label="[TO ADD: Upload cycle time data here]" />
-        </div>
       </Section>
 
       {/* Lightbox */}

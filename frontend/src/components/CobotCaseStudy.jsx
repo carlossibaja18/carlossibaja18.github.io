@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import { Reveal } from "./Motion";
-import { ResultsTable, PlaceholderBox } from "./CaseStudyShared";
 
 const ACCENT = "#15628f"; // restrained industrial blue, inspired by the pneumatic tubing
 
@@ -263,27 +262,8 @@ export const CobotCaseStudy = ({ onClose }) => {
         </ul>
       </Section>
 
-      {/* 13 — RESULTS */}
-      <Section n="11" label="Results" heading="Results">
-        <ResultsTable
-          testid="cobot-results-table"
-          dark={false}
-          accent={ACCENT}
-          rows={[
-            ["Weld cycle time", "[TO ADD: Before]", "[TO ADD: After]"],
-            ["Weld repeatability", "[TO ADD: Before]", "[TO ADD: After]"],
-            ["Scrap or defect rate", "[TO ADD: Before]", "[TO ADD: After]"],
-          ]}
-        />
-        <div className="mt-6 grid sm:grid-cols-3 gap-4">
-          <PlaceholderBox dark={false} testid="cobot-placeholder-fixture-photo" label="[TO ADD: Upload fixture photo here]" />
-          <PlaceholderBox dark={false} testid="cobot-placeholder-welder-holder-cad" label="[TO ADD: Upload welder holder CAD screenshot here]" />
-          <PlaceholderBox dark={false} testid="cobot-placeholder-pneumatic-vacuum-diagram" label="[TO ADD: Upload pneumatic and vacuum diagram here]" />
-        </div>
-      </Section>
-
-      {/* 14 — LESSON LEARNED */}
-      <Section n="12" label="Lesson Learned" heading="Lesson Learned">
+      {/* 13 — LESSON LEARNED */}
+      <Section n="11" label="Lesson Learned" heading="Lesson Learned">
         <Body>A faster robot does not fix a variable process.</Body>
       </Section>
 
