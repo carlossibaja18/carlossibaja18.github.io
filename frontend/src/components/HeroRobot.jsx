@@ -59,7 +59,7 @@ export const HeroRobot = () => {
     renderer.toneMapping = THREE.NeutralToneMapping;
     renderer.toneMappingExposure = 1.18;
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     el.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();

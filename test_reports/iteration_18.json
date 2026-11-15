@@ -1,0 +1,44 @@
+{
+  "summary": "Frontend-only validation of the new three.js HeroRobot joint-animation hero. Canvas mounts, rigged GLB loads, per-joint articulation runs ~10.5s loop while camera & base stay fixed, click opens case-study modal, drag orbits without opening, animation pauses when hero is scrolled out of view and resumes on scroll-in, prefers-reduced-motion yields identical static frames, mobile 375 has no horizontal overflow, and there are no console errors (only benign three.js/PostHog warnings).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verifications": {
+    "canvas_mounted": true,
+    "animation_detected_signature_diffs_vs_frame0": [42254, 120700, 156528, 163628, 69795],
+    "base_strip_diff_over_2_5s": 0,
+    "interpretation": "Non-zero global diff but base-strip diff = 0 confirms JOINT articulation, not whole-model turntable spin (base puck pixels are static).",
+    "click_opens_modal": true,
+    "drag_does_not_open_modal": true,
+    "paused_when_out_of_view_frame_diff": 0,
+    "resumed_when_back_in_view_frame_diff": 5923,
+    "reduced_motion_static_identical_frames": true,
+    "mobile_390_horizontal_overflow": false,
+    "console_errors": 0,
+    "console_warnings_benign": [
+      "THREE.WebGLShadowMap: PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead.",
+      "PostHog bot-UA filter (test env only)",
+      "ReadPixels GPU stall (caused by test instrumentation)"
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional: three.js deprecation warning 'PCFSoftShadowMap has been deprecated. Using PCFShadowMap instead.' — consider switching to THREE.PCFShadowMap or VSMShadowMap in HeroRobot.jsx to silence the warning. Non-blocking."
+  ],
+  "critical_code_review_comments": [
+    "HeroRobot.jsx correctly disposes renderer, geometries, materials, controls, observers and listeners on unmount — good cleanup.",
+    "onClickCapture drag-guard uses stopPropagation+preventDefault and resets dragged flag — robust pattern.",
+    "poseAt uses a modulo-wrapped keyframe search with cosine ease — seamless loop (first & last keyframe identical), confirmed visually and by returning signature trend.",
+    "IntersectionObserver + visibilitychange gates the rAF loop correctly (verified: 0 diff while scrolled out, non-zero on return)."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Hero is now a custom three.js renderer in HeroRobot.jsx. data-testid='hero-centerpiece' is the container; query 'canvas' inside it. Click-to-open target is 'hero-featured-card'. To distinguish joint motion from camera motion, compare a 12%-tall bottom strip of the canvas (base puck) over a 2.5s window — it should be ~0 while the full-frame diff is non-zero. Pause behavior is driven by IntersectionObserver + document.hidden. Reduced-motion branch renders exactly once in home pose and listens only to controls 'change'."
+}

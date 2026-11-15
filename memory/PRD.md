@@ -110,6 +110,13 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - New shared primitives: `/app/frontend/src/components/CaseStudyShared.jsx` (ResultsTable + PlaceholderBox, light/dark).
 - Pending user uploads (placeholders live): Cobot — weld cycle time before/after, weld repeatability before/after, scrap rate before/after, fixture photo, welder holder CAD screenshot, pneumatic/vacuum diagram. FANUC — shell models supported "before" value, cell layout photo, vision setup photo, cycle time data.
 
+## Hero Joint Animation (DELIVERED — iteration_18, 100% pass, 2026-07)
+- Replaced the model-viewer turntable hero with real per-joint animation of the SAME FAIRINO FR3-WMS model. Offline rig: `/app/scripts/rig_fr3.py` splits the single Draco mesh into 2539 CAD components, groups them into 7 links by centroid region rules (no geometry cut/modified), exports `/models/fairino-fr3-wms-rigged.glb` with node chain root(bakes Z-up→Y-up)→J1..J6 at measured pivots; identical PBR material preserved. Verify/iterate with `/app/scripts/verify_rig.py`.
+- Measured joint map (file frame, Z-up, meters): J1 yaw +Y@(0,0.07,0) puck/turret; J2 shoulder +X@(0.14,0.14,0); J3 elbow +Y@(0.115,0.14,0.30); J4 forearm roll +X@(0.05,0.14,0.295); J5 wrist pitch +Y@(0,0.14,0.36); J6 flange roll +X@(0.16,0.038,0.52). Note: tool wand sits at y≈0.038 (offset toward viewer), not the y=0.14 arm plane.
+- New `/app/frontend/src/components/HeroRobot.jsx`: raw three.js (0.185.1) — NeutralToneMapping, exposure 1.18, studio-env.hdr PMREM env, camera fov 30 orbit 20°/76°/158% equivalent, OrbitControls (no zoom/pan, polar 45–100°), key light + contact shadow, drag-vs-click guard (≤6px = click → opens Cobot modal).
+- Loop 10.5s, cosine ease: home hold 1s → reach [J1 6, J2 20, J3 30] 2s → weld [+J3 40, +J5 20] 1.5s → hold 1s → lift 2s → return 2s → pause 1s. J1 reduced 30°→6° under user's safe-angle rule (shoulder housing 0.168m off yaw axis would dip below base plane >7°; verified minY never below base bottom −0.064). J4/J6 rigged, held at 0.
+- Pause via IntersectionObserver + visibilitychange (anim-time accumulation → resume without snap); prefers-reduced-motion renders one static home frame; verified 0 console errors, mobile clean. Old model-viewer element removed from Hero.jsx; original GLB untouched (fairino-fr3-wms.glb kept, .orig.glb backup kept).
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.
