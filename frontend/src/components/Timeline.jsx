@@ -17,7 +17,7 @@ export const Timeline = ({ onOpen }) => {
       <div className="relative max-w-5xl mx-auto px-6 sm:px-10">
         <Reveal>
           <div className="mb-16 sm:mb-20 max-w-2xl">
-            <span className="font-mono text-xs tracking-[0.28em] uppercase text-[#67D7FF]">03 / Timeline</span>
+            <span className="font-mono text-xs tracking-[0.28em] uppercase text-[#67D7FF]">04 / Timeline</span>
             <h2 className="mt-5 font-display font-light tracking-tight text-4xl sm:text-6xl text-[#F3F7FA]">
               Engineering Journey
             </h2>
