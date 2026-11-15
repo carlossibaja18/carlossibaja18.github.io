@@ -102,6 +102,14 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - User bug: trackpad two-finger scroll did nothing inside project/credential modals — only scrollbar dragging worked. Root cause: Lenis smooth-scroll intercepts wheel events at root level; with body locked, the modal's own overflow container never received native wheel scrolling.
 - Fix: added `data-lenis-prevent` to the scroll containers in ProjectModal.jsx (covers all 4 case studies) and CredentialModal.jsx. Verified with real wheel events: FANUC modal scrollTop 0→1440→0, credential modal 0→1440; no regressions.
 
+## Scoped Edit Batch — Skills + Case-Study Expansions + Corrections (DELIVERED — iteration_17, 100% pass, 2026-07)
+- Part 1: Expected Graduation 2027→2028 (timeline note; degree date range also 2021–2028 for consistency). "Hydraulic Cylinder Design" chip removed from timeline meta AND its claim clause removed from that entry's desc (user: "I did not do that work").
+- Part 2: New `Skills.jsx` section directly between Hero and Projects in App.js. Title "Skills", 3 cards exact content (Design / Analysis and Manufacturing / Automation and Robotics), bottom line "Also experienced with: CNC, Mastercam". Kickers renumbered: 01 Skills, 02 Projects, 03 Timeline, 04 About Me.
+- Part 3: CobotCaseStudy expanded IN PLACE after Contributions: 08 Problem, 09 My Role, 10 Design (4 exact bullets), 11 Results (Metric/Before/After table, 6 grey [TO ADD:] placeholder cells + 3 grey placeholder boxes), 12 Lesson Learned. Original sections/images/order untouched.
+- Part 4: FanucCaseStudy expanded IN PLACE after Key Lesson: 07 Problem, 08 My Role, 09 What I Did (3 exact bullets), 10 Results (exact values; only "Shell models supported" Before cell is a [TO ADD: Before] placeholder) + 3 grey placeholder boxes. Original content + credential untouched.
+- New shared primitives: `/app/frontend/src/components/CaseStudyShared.jsx` (ResultsTable + PlaceholderBox, light/dark).
+- Pending user uploads (placeholders live): Cobot — weld cycle time before/after, weld repeatability before/after, scrap rate before/after, fixture photo, welder holder CAD screenshot, pneumatic/vacuum diagram. FANUC — shell models supported "before" value, cell layout photo, vision setup photo, cycle time data.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.
