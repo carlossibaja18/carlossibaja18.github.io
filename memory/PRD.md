@@ -127,7 +127,7 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 
 ## Currently Building Section (DELIVERED — iteration_20; card content revised 2026-07, verified 100%)
 - `CurrentlyBuilding.jsx` between Projects and Timeline in App.js. Kicker "03 / Currently Building", title "Currently Building", exact subheading "AI in practice. I am using AI to make SolidWorks and DFM faster, not learning AI as a separate skill."
-- Exactly 3 cards (same card style as Skills): 1) Parametric CAD Generator (Building) — unchanged original copy 2) AI-Assisted DFM Workflow (Testing) — user-revised exact description/bullets 3) Systematic Trading Bot (Paper Trading Only) — replaced the earlier CAD Automation Macros card (phrase removed everywhere). No link/placeholder boxes in this section; each card ends with plain muted text "Currently working on this". PlaceholderBox remains used by the Cobot/FANUC case studies only.
+- Exactly 3 cards (same card style as Skills): 1) Parametric CAD Generator (Building) — unchanged original copy 2) AI-Assisted DFM Workflow (Testing) — user-revised exact description/bullets 3) Systematic Trading Bot (Paper Trading Only) — replaced the earlier CAD Automation Macros card (phrase removed everywhere), with exact copy incl. the italic note "Note: Side learning project, not an income plan, never touches Miami move money" under its Next bullet. No link/placeholder boxes in this section; each card ends with plain muted text "Currently working on this". PlaceholderBox remains used by the Cobot/FANUC case studies only.
 - Section renumbering: Timeline → "04 / Timeline", About Me → "05 / About Me". Nav labels unchanged per instructions. No changes to hero/Skills/Projects order or styling.
 
 ## Backlog

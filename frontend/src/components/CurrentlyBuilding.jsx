@@ -35,8 +35,8 @@ const CARDS = [
       "Stack: Python, Alpaca free API, backtesting",
       "Current step: Paper trading and backtesting only, validating rules before any real money",
       "Next: Keep validating for months, tiny real money only after validated paper trading",
-      "Note: Side learning project, not an income plan, never touches Miami move money",
     ],
+    note: "Note: Side learning project, not an income plan, never touches Miami move money",
   },
 ];
 
@@ -81,6 +81,9 @@ export const CurrentlyBuilding = () => {
                     </li>
                   ))}
                 </ul>
+                {card.note && (
+                  <p className="mb-4 text-[#9AA8B3]/80 text-xs italic leading-relaxed">{card.note}</p>
+                )}
                 <p data-testid={`building-note-${card.id}`} className="font-mono text-xs tracking-wide text-[#9AA8B3]">
                   Currently working on this
                 </p>
