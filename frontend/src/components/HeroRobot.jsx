@@ -8,29 +8,31 @@ const MODEL = "/models/fairino-fr3-wms-rigged.glb";
 const ENV = "/models/studio-env.hdr";
 
 /*
- * Joint animation loop (degrees, file-frame joint axes baked into the rig):
- * J1 base yaw (about rig +Y), J2 shoulder (about +X), J3 elbow (+Y),
- * J4 forearm roll (+X), J5 wrist pitch (+Y), J6 flange roll (+X).
- * Poses per spec; J1 reduced 30° -> 6° under the "safe angle" rule: the
- * shoulder housing sits 0.168 m off the yaw axis and would dip below the
- * base plane beyond ~7°. J4/J6 are rigged but held at zero in this cycle.
- * Timeline: home 1s -> reach 2s -> weld 1.5s -> hold 1s -> lift 2s ->
- * return 2s -> pause 1s, seamless 10.5 s loop, cosine ease-in-out.
+ * Joint animation loop (degrees) on the re-measured rig v2:
+ * J1 base yaw (+Y), J2 shoulder pitch (+X through barrel center 0.14,0.14,0),
+ * J3 elbow pitch (+X through barrel center 0.11,0.14,0.28 — the wrist-1
+ * housing is coaxial with this axis, so its spin is seam-free at any angle),
+ * J4 column roll (+Z), J5 wand pitch (+Y through the wand-root collar
+ * 0.06,0.038,0.52 — the tool tube pitches nose-down inside its root pocket),
+ * J6 flange roll (+X along the wand).
+ * Five-pose 11 s loop: Home 0.8s -> Reach 2.2s -> Weld Dip 1.2s -> hold 0.9s
+ * -> Lift 1.6s -> Return 2.2s -> Home dwell 2.1s. J1/J2/J3/J5 always move
+ * together, cosine-eased. J4/J6 rigged, held at zero for this cycle.
  */
 const KEYFRAMES = [
-  { t: 0.0, j: [0, 0, 0, 0, 0, 0] },
-  { t: 1.0, j: [0, 0, 0, 0, 0, 0] },
-  { t: 3.0, j: [6, 20, 30, 0, 0, 0] },
-  { t: 4.5, j: [6, 20, 40, 0, 20, 0] },
-  { t: 5.5, j: [6, 20, 40, 0, 20, 0] },
-  { t: 7.5, j: [6, 20, 30, 0, 0, 0] },
-  { t: 9.5, j: [0, 0, 0, 0, 0, 0] },
-  { t: 10.5, j: [0, 0, 0, 0, 0, 0] },
+  { t: 0.0, j: [0, 0, 0, 0, 0, 0] },      // Home (0%)
+  { t: 0.8, j: [0, 0, 0, 0, 0, 0] },
+  { t: 3.0, j: [6, 15, 25, 0, 0, 0] },    // Reach (~27%)
+  { t: 4.2, j: [6, 20, 35, 0, 20, 0] },   // Weld Dip
+  { t: 5.1, j: [6, 20, 35, 0, 20, 0] },   // hold the weld
+  { t: 6.7, j: [6, 18, 30, 0, 10, 0] },   // Lift
+  { t: 8.9, j: [0, 0, 0, 0, 0, 0] },      // Return Home
+  { t: 11.0, j: [0, 0, 0, 0, 0, 0] },     // Home dwell (100%)
 ];
 const LOOP = KEYFRAMES[KEYFRAMES.length - 1].t;
 const JOINT_NODES = ["J1", "J2", "J3", "J4", "J5", "J6"];
 // local rotation axis per joint node (single-axis Euler components)
-const JOINT_AXES = ["y", "x", "y", "x", "y", "x"];
+const JOINT_AXES = ["y", "x", "x", "z", "y", "x"];
 
 const easeInOut = (u) => 0.5 - 0.5 * Math.cos(Math.PI * u);
 
@@ -141,6 +143,19 @@ export const HeroRobot = () => {
     const onVis = () => maybe();
     document.addEventListener("visibilitychange", onVis);
 
+    // test hook: seek to an absolute loop time (seconds), render one frame
+    el.__setTime = (t) => {
+      if (!joints) return false;
+      stop();
+      animTime = t;
+      applyPose(poseAt(animTime));
+      controls.update();
+      renderer.render(scene, camera);
+      return true;
+    };
+    el.__scene = scene;
+    el.__isRunning = () => running;
+
     (async () => {
       const pmrem = new THREE.PMREMGenerator(renderer);
       const [gltf, hdr] = await Promise.all([
@@ -214,6 +229,9 @@ export const HeroRobot = () => {
       ro.disconnect();
       io.disconnect();
       document.removeEventListener("visibilitychange", onVis);
+      delete el.__setTime;
+      delete el.__scene;
+      delete el.__isRunning;
       el.removeEventListener("pointerdown", onDown);
       el.removeEventListener("pointermove", onMove);
       el.__stillCleanup?.();
