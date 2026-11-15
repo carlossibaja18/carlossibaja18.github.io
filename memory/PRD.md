@@ -133,10 +133,16 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 ## Timeline — 2027 Plans Entry (DELIVERED — 2026-07, verified 100%)
 - New final TIMELINE entry in portfolio.js: date "2027", title "2027 Plans", context "Future Plans", desc "Plans for 2027 after moving to Miami.", meta ["PLANS"], `planned: true` (renders hollow dashed cyan node instead of filled dot), bullets: exact 5 user-provided lines (finishing school at FIU / ocean research in Miami / expanding AI knowledge / expanding CAD skills / living in Miami). No new section; sits at the end of the existing timeline after the 2026 Cobot entry. Timeline.jsx gained a `m.bullets` render branch; the expandable `details` toggle is unchanged and still only on the 2026 Manufacturing Engineer entry.
 
+## Placeholder Removal + Typo + Spacing + Results Merge (DELIVERED — iteration_21, 100% pass, 2026-07)
+- Fix 1: All "[TO ADD" placeholders removed site-wide (zero matches). Cobot case study: entire placeholder Results table + 3 photo boxes removed — ends cleanly at Lesson Learned. FANUC case study: "Shell models supported" row + 3 photo boxes removed — Results table keeps 2 real rows (Operators per shell 6→2 robots, Time per shell 40→6 minutes).
+- Fix 2: FARINO→FAIRINO / Farino→Fairino corrected everywhere in portfolio.js (zero matches). LinkedIn URL carlos-sibaja-enginnering kept verbatim (user's actual handle).
+- Fix 3: Section gaps roughly halved — Projects pb-12 sm:pb-16, CurrentlyBuilding py-12 sm:py-16, Timeline pb-12 sm:pb-16. CaseStudyShared.jsx reduced to ResultsTable only (placeholder components deleted).
+- Fix 4: Cobot has one Results heading (editorial 08) and ends with Lesson Learned; FANUC keeps editorial 05 — Results (comparison cards) + single 10 — Results table with real numbers only.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.
-- P2: User to supply real values/photos for the 6 Cobot + 4 FANUC grey [TO ADD:] placeholders (weld cycle times, repeatability, scrap rate, fixture photo, holder CAD screenshot, pneumatic/vacuum diagram, cell layout photo, vision setup photo, cycle-time data).
+- P2: If the user later supplies real values/photos (weld cycle times, repeatability, scrap rate, fixture photo, holder CAD screenshot, pneumatic/vacuum diagram, cell layout photo, vision setup photo, cycle-time data), re-add those rows/figures to the case studies.
 
 ## Next Tasks
 - **Timeline redesigned (iteration_7, 100%):** 8 exact chronological milestones (Mission Vista HS → VEX → FIU BSME 2021–2027 → ECO/VEX → San Diego exploration → Watkins Wellness Jan 2026–Present w/ expandable role details → FANUC HandlingTool May 2026 → Cobot 2026). Alternating rail w/ scroll-fill blue line, reduced-motion aware, mobile left-rail stack. Last milestone's "View Cobot Case Study →" opens the PRESERVED cobot modal. No invented facts/images.
