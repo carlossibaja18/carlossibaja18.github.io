@@ -130,6 +130,9 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Exactly 3 cards (same card style as Skills): 1) Parametric CAD Generator (Building) — unchanged original copy 2) AI-Assisted DFM Workflow (Testing) — user-revised exact description/bullets 3) Systematic Trading Bot (Paper Trading Only) — replaced the earlier CAD Automation Macros card (phrase removed everywhere), with exact copy incl. the italic note "Note: Side learning project, not an income plan, never touches Miami move money" under its Next bullet. No link/placeholder boxes in this section; each card ends with plain muted text "Currently working on this". PlaceholderBox remains used by the Cobot/FANUC case studies only.
 - Section renumbering: Timeline → "04 / Timeline", About Me → "05 / About Me". Nav labels unchanged per instructions. No changes to hero/Skills/Projects order or styling.
 
+## Timeline — 2027 Plans Entry (DELIVERED — 2026-07, verified 100%)
+- New final TIMELINE entry in portfolio.js: date "2027", title "2027 Plans", context "Future Plans", desc "Plans for 2027 after moving to Miami.", meta ["PLANS"], `planned: true` (renders hollow dashed cyan node instead of filled dot), bullets: exact 5 user-provided lines (finishing school at FIU / ocean research in Miami / expanding AI knowledge / expanding CAD skills / living in Miami). No new section; sits at the end of the existing timeline after the 2026 Cobot entry. Timeline.jsx gained a `m.bullets` render branch; the expandable `details` toggle is unchanged and still only on the 2026 Manufacturing Engineer entry.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.

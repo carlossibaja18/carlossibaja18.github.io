@@ -67,7 +67,7 @@ const Milestone = ({ m, index, left, onOpenCobot }) => {
     >
       {/* Node */}
       <span className={`absolute top-1.5 left-[15px] md:left-1/2 -translate-x-1/2 z-[2] grid place-items-center ${m.featured ? "h-4 w-4" : "h-3 w-3"}`}>
-        <span className={`rounded-full bg-[#080A0D] border-2 border-[#67D7FF] ${m.featured ? "h-4 w-4" : "h-3 w-3"}`} />
+        <span className={`rounded-full border-2 border-[#67D7FF] ${m.planned ? "bg-transparent border-dashed" : "bg-[#080A0D]"} ${m.featured ? "h-4 w-4" : "h-3 w-3"}`} />
         {m.featured && <span className="absolute h-4 w-4 rounded-full bg-[#67D7FF]/25" />}
       </span>
 
@@ -84,6 +84,17 @@ const Milestone = ({ m, index, left, onOpenCobot }) => {
         <p className="mt-1 text-[#9AA8B3] text-xs sm:text-sm font-medium">{m.context}</p>
         {m.note && <p className="mt-1 font-mono text-[11px] tracking-wide text-[#67D7FF]/80">{m.note}</p>}
         <p className="mt-3 text-[#9AA8B3] text-sm leading-relaxed">{m.desc}</p>
+
+        {m.bullets && (
+          <ul className={`mt-4 space-y-2.5 ${left ? "md:flex md:flex-col md:items-end" : ""}`}>
+            {m.bullets.map((b) => (
+              <li key={b} className={`flex gap-3 text-[#9AA8B3] text-sm leading-relaxed ${left ? "md:flex-row-reverse md:text-right" : ""}`}>
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#67D7FF] shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {m.meta && (
           <div className={`mt-4 flex flex-wrap gap-2 ${left ? "md:justify-end" : ""}`}>

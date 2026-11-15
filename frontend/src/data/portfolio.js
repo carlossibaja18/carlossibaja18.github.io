@@ -170,6 +170,21 @@ export const TIMELINE = [
     featured: true,
     cobotLink: true,
   },
+  {
+    date: "2027",
+    title: "2027 Plans",
+    context: "Future Plans",
+    desc: "Plans for 2027 after moving to Miami.",
+    meta: ["PLANS"],
+    planned: true,
+    bullets: [
+      "Working toward finishing school at FIU, Mechanical Engineering",
+      "Working on ocean research in Miami",
+      "Expanding AI knowledge for mechanical design",
+      "Expanding CAD skills in SolidWorks, DFM, GD&T, and FEA",
+      "Living in Miami, Florida",
+    ],
+  },
 ];
 
 export const DRONE_PHOTOS = [
