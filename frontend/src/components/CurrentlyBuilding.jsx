@@ -1,5 +1,4 @@
 import { Reveal } from "./Motion";
-import { PlaceholderBox } from "./CaseStudyShared";
 
 const CARDS = [
   {
@@ -13,33 +12,31 @@ const CARDS = [
       "Current step: Getting Python talking to SolidWorks on my home machine, open, create a blank part, save, close",
       "Next: Generate the first real part family for a camera mount base",
     ],
-    link: "[TO ADD: GitHub repo link here]",
   },
   {
     id: "ai-assisted-dfm-workflow",
     title: "AI-Assisted DFM Workflow",
     status: "Testing",
     description:
-      "A workflow that uses AI to draft DFM feedback on parts faster, so design reviews catch manufacturing issues earlier.",
+      "Using AI to speed up DFM checks and documentation, with SolidWorks and DFM doing the real work. AI is a multiplier, not the design.",
     bullets: [
-      "Stack: AI-assisted drafting, DFM checklists, SolidWorks drawings",
-      "Current step: Testing prompts against real parts to see where the feedback is useful and where it misses",
-      "Next: Build a repeatable DFM review checklist I can run before sending parts out",
+      "Stack: DFM Checklist Pack, GD&T Cheat Sheet and Tolerance Stack-Up Workbook",
+      "Current step: Testing it first on a real part before claiming it works",
+      "Next: Catch manufacturability issues earlier and document them faster",
     ],
-    link: "[TO ADD: workflow notes or example output link here]",
   },
   {
-    id: "cad-automation-macros",
-    title: "CAD Automation Macros",
-    status: "Building",
+    id: "systematic-trading-bot",
+    title: "Systematic Trading Bot",
+    status: "Paper Trading Only",
     description:
-      "Small SolidWorks macros that automate repetitive modeling and drawing tasks I do over and over on real projects.",
+      "A systematic trading system built to learn Python, data, and risk controls. Paper trading first, no real money until it is validated for months.",
     bullets: [
-      "Stack: SolidWorks API, VBA/Python, drawing automation",
-      "Current step: Automating the most repeated steps from my recent fixture and mount work",
-      "Next: Package the macros so they are one click instead of a manual routine",
+      "Stack: Python, Alpaca free API, backtesting",
+      "Current step: Paper trading and backtesting only, validating rules before any real money",
+      "Next: Keep validating for months, tiny real money only after validated paper trading",
+      "Note: Side learning project, not an income plan, never touches Miami move money",
     ],
-    link: "[TO ADD: GitHub repo link here]",
   },
 ];
 
@@ -84,9 +81,9 @@ export const CurrentlyBuilding = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6">
-                  <PlaceholderBox label={card.link} dark testid={`building-link-${card.id}`} />
-                </div>
+                <p data-testid={`building-note-${card.id}`} className="font-mono text-xs tracking-wide text-[#9AA8B3]">
+                  Currently working on this
+                </p>
               </div>
             </Reveal>
           ))}
