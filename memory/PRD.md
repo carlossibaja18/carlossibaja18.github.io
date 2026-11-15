@@ -117,9 +117,18 @@ centered scrollable case-study modals. Visual growth timeline. Minimal resume/co
 - Loop 10.5s, cosine ease: home hold 1s → reach [J1 6, J2 20, J3 30] 2s → weld [+J3 40, +J5 20] 1.5s → hold 1s → lift 2s → return 2s → pause 1s. J1 reduced 30°→6° under user's safe-angle rule (shoulder housing 0.168m off yaw axis would dip below base plane >7°; verified minY never below base bottom −0.064). J4/J6 rigged, held at 0.
 - Pause via IntersectionObserver + visibilitychange (anim-time accumulation → resume without snap); prefers-reduced-motion renders one static home frame; verified 0 console errors, mobile clean. Old model-viewer element removed from Hero.jsx; original GLB untouched (fairino-fr3-wms.glb kept, .orig.glb backup kept).
 
+## Hero Joint Animation REPAIR v2 (DELIVERED — iteration_19, 100% pass, 2026-07)
+- User rejected the iteration_18 animation on sight: J3 elbow visibly dislocated (dark gap), wrist locked/rigid with clipping, no real five-pose cycle, impossible folded pose aiming the flange at the base.
+- Root causes found by mesh forensics: J3 rotated about the WRONG axis (v1 used +Y through (0.115,0.14,0.30)); the real elbow barrel is an X-axis cylinder centered at x=0.11, z≈0.28, and the wrist-1 housing blob (0.005,0.14,0.288) is COAXIAL with that axis. The wand is a separate tool tube at y≈0.038 whose root collar pivots about Y at (0.06,0.038,0.52).
+- Re-rigged (`/app/scripts/rig_fr3.py` v2 → `/models/fairino-fr3-wms-rigged.glb`), pivots now at measured housing centers: J1 yaw +Y@(0,0.07,0); J2 shoulder +X@(0.14,0.14,0) (barrel stays with lower column — coaxial spin is seam-free); J3 elbow +X@(0.11,0.14,0.28); J4 column roll +Z@(0,0.14,0.40); J5 wand pitch +Y@(0.06,0.038,0.52) (nose dips inside its root pocket); J6 flange roll +X@(0.16,0.038,0.52). No geometry cut; only the 2539 CAD solids re-grouped; PBR material preserved.
+- HeroRobot.jsx loop replaced: 11 s five-pose cycle Home 0.8s → Reach 2.2s [J1 6,J2 15,J3 25] → Weld Dip 1.2s [J2 20,J3 35,J5 20] → hold 0.9s → Lift 1.6s → Return 2.2s → Home dwell 2.1s; J1/J2/J3/J5 always move together, cosine-eased; J4/J6 rigged, held at 0. Joint axes corrected to [y,x,x,z,y,x]. No impossible folds (FK-verified minY never below base plane; wand-arm clearance ≥2 mm in-loop, 6.2 mm at weld).
+- Test hooks on `data-testid=hero-centerpiece`: `__scene`, `__setTime(sec)`, `__isRunning()`.
+- Verified: 0/25/50/75/100% checkpoint stills show connected elbow and wand-root seams, no dislocation, flange never aims at base; pause offscreen/tab-hidden; reduced-motion static Home; orbit drag works, click opens Cobot modal; hero layout/scale/lighting unchanged; zero console errors.
+
 ## Backlog
 - P1: Add real resume PDF and wire link-file to it.
 - P2: (done) LinkedIn URL.
+- P2: User to supply real values/photos for the 6 Cobot + 4 FANUC grey [TO ADD:] placeholders (weld cycle times, repeatability, scrap rate, fixture photo, holder CAD screenshot, pneumatic/vacuum diagram, cell layout photo, vision setup photo, cycle-time data).
 
 ## Next Tasks
 - **Timeline redesigned (iteration_7, 100%):** 8 exact chronological milestones (Mission Vista HS → VEX → FIU BSME 2021–2027 → ECO/VEX → San Diego exploration → Watkins Wellness Jan 2026–Present w/ expandable role details → FANUC HandlingTool May 2026 → Cobot 2026). Alternating rail w/ scroll-fill blue line, reduced-motion aware, mobile left-rail stack. Last milestone's "View Cobot Case Study →" opens the PRESERVED cobot modal. No invented facts/images.
